@@ -4,6 +4,27 @@
 <struts>
     <include file="struts-default.xml"/>
     <package name="s_rtest"  extends="struts-default">
+        <action name="recommend" class="s_rtest.action" method = "recommend">
+            <result name="Success">/Recommendresult.jsp</result>
+        </action>
         
+        <action name="showroomDoc" class="s_rtest.action" method = "showroomDoc">
+            <result name="Success">/Roomdoctor.jsp</result>
+        </action>
+        
+        <action name="doctorQuery" class="s_rtest.action" method = "doctorQuery">
+            <result name="Success">/oneDoctor.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="beMypatient" class="s_rtest.action" method = "beMypatient">
+            <result name="Success">/registerInfo.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="registerInfo" class="s_rtest.action" method = "registerInfo">
+            <result name="Success">/showregisterInfo.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
     </package>
 </struts>
