@@ -1,10 +1,19 @@
 package s_rtest;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 public class action {
     private String loginname;
     private String password;
     private String loginer;
-    private String name;
+    private String patientname;
     private int age;
     private String id;
     private int phonenumber;
@@ -12,6 +21,13 @@ public class action {
     private String doctorname;
     private String sex;
     private String room;
+    private String direction;
+    private int limitpatients;
+    private List<String> targetdoctor = new LinkedList<String>();
+    ServletRequest request = ServletActionContext.getRequest();
+	ServletRequest request2 = ServletActionContext.getRequest();
+    HttpServletRequest req = (HttpServletRequest) request;
+    HttpSession session = req.getSession();
 	public String getLoginname() {
 		return loginname;
 	}
@@ -31,10 +47,10 @@ public class action {
 		this.loginer = loginer;
 	}
 	public String getName() {
-		return name;
+		return patientname;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.patientname = name;
 	}
 	public String getId() {
 		return id;
@@ -87,8 +103,16 @@ public class action {
 	
 	//医生查询，首页输姓名
 	public String doctorQuery() {
+		DBConnection c = new DBConnection();
 		
-		return"";
+		doctorname = request.getParameter("name");
+		String sql_fordoctor = "SELECT * from doctor where name = \"" + doctorname + "\"";
+		targetdoctor = c.select(sql_fordoctor);
+		
+		
+		
+		
+		return "";
 	}
 	
 	//挂号信息插入数据库
@@ -99,6 +123,7 @@ public class action {
 	
 	//选择医生，人满失败，人少成功
 	public String beMypatient() {
+		
 		
 		return "";
 	}
