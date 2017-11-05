@@ -98,26 +98,20 @@ public class action {
 	}
 	
 	//选择医生，人满失败，人少成功
-	public String beMypatiant() {
+	public String beMypatient() {
 		
 		return "";
 	}
 	
 	//根据病情推荐医生 --yourillness
-	public String recommand() {
-		
+	public String recommend() {
+		System.out.println(yourillness);
 		return"";
 	}
 	
 	//展示科室医生 --使用首页科室选择（room）
 	public String showroomDoc() {
-		
-		return"";
-	}
-	
-	//展示单个医生用来确认挂号
-    public String showDoc() {
-		
+		System.out.println(room);
 		return"";
 	}
 	
