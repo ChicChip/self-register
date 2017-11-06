@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.LinkedList,java.util.List,java.net.URLEncoder "
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,10 +20,35 @@
     <h1>欢迎来到本科室</h1>
     <s:property value="room"/>
     <div class="container">
-    <a href=Recommed.jsp><button type="button" class="btn btn-info">进入病情推荐功能</button></a>
-    <center>
-    </center>
+    <a href=Recommend.jsp><button type="button" class="btn btn-info">进入病情推荐功能</button></a>
+    
     </div>
+    
+    <div class="container">
+    <%List<String> department_doctor=session.getAttribute("department_doctor")==null?new LinkedList():(List<String>)session.getAttribute("department_doctor");
+
+
+if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
+{
+    for(int i =0;i<department_doctor.size();i+=4)
+    {
+        
+        out.print("<td align=\"center\"><a href=doctorQuery?doctorname="+ department_doctor.get(i)+">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i)+"</td>");
+        
+
+    }
+    
+}
+else
+    out.print("<p><font size=\"5\" face=\"STLiti\" color=\"white\">该科室无医生");
+%>
+    
+    </div>
+    
+    
+    
+    
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -29,13 +29,13 @@
         </s:form>
         <s:form role="form" action="showroomDoc">
         <div class="form-group">
-        <s:select class="form-control" name="room" list="#{1:'内科',2:'外科',3:'妇科',4:'儿科'}" listKey="key" listValue="value" headerKey="0" headerValue="请选择科室"></s:select> 
+        <s:select class="form-control" name="room" list="#{1:'内科',2:'外科',3:'妇产科',4:'儿科',5:'康复医学科',6:'中医科',7:'肿瘤科',8:'五官科',9:'传染科',10:'男科',11:'精神心理科'}" listKey="key" listValue="value" headerKey="0" headerValue="请选择科室"></s:select> 
         <button type="submit" class="btn btn-info">进入此科室</button>
         </div>
         </s:form>
     </center>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
