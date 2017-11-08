@@ -131,6 +131,10 @@ public class action {
 		DBConnection c = new DBConnection();
 		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
 				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\")";
+		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" +doctorname+"\"";
+		Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
+		session.setAttribute("doctorname", doctorname);
+		session.setAttribute("urnum", urnum);
 		c.ope(insertpatient);
 		return "Success";
 	}
@@ -182,6 +186,9 @@ public class action {
 			}
 		}
 		doctorname = department_doctor.get(targetrankOfdoctor);
+		session.setAttribute("department_doctor", department_doctor);
+		session.setAttribute("doctorname", doctorname);
+		session.setAttribute("targetrankOfdoctor", targetrankOfdoctor);
 		System.out.println(yourillness);
 		System.out.println(department_doctor.get(targetrankOfdoctor));
 		return"Success";

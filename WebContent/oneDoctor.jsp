@@ -26,17 +26,17 @@
     if(!targetdoctor.isEmpty()&& targetdoctor!=null&&targetdoctor.size()!=0)
     {
 
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"white\">"+targetdoctor.get(0)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"white\">"+targetdoctor.get(1)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"white\">"+targetdoctor.get(2)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(0)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(2)+"</td>");
 
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"white\">"+"work"+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
             out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+targetdoctor.get(0)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
         
         
     }
     else
-        out.print("<p><font size=\"5\" face=\"STLiti\" color=\"white\">该医生不存在，确认姓名无误后输入");
+        out.print("<p><font size=\"5\" face=\"STLiti\" color=\"black\">该医生不存在，确认姓名无误后输入");
     
     
     
@@ -44,12 +44,6 @@
     
     %>
     </tr>
-    
-     <center>
-        
-   <!--  <a herf=beMypatient?doctorname=<%out.print(targetdoctor.get(0)); %>><button type="button" class="btn btn-info">挂号到此医生</button> </a>
-    -->
-    </center>
     
     </table>
     

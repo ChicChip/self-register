@@ -20,7 +20,24 @@
     <h1>haha</h1>
     <div class="container">
     <center>
+        <table align = "center">
+        <tr>
+        <%
+        Integer urnum = Integer.parseInt(session.getAttribute("urnum").toString());
+        String doctorname = session.getAttribute("doctorname").toString();
         
+        out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"你的挂号:"+urnum+"</td>");
+        
+        out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治医师:"+doctorname+"</td>");
+        
+        
+        %>
+        
+        </tr>
+        <tr>
+        
+        </tr>
+        </table>
     </center>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
