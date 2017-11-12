@@ -223,4 +223,9 @@ public class action {
 		return "Success";
 	}
 	
+	public String gotoRegister()
+	{
+		return "Success";
+	}
+	
 }
