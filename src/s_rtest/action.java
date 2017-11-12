@@ -131,7 +131,8 @@ public class action {
 		DBConnection c = new DBConnection();
 		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
 				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\")";
-		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" +doctorname+"\"";
+		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" + doctorname + "\"";
+		System.out.println(mysql_forthisdoctor);
 		Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
 		session.setAttribute("doctorname", doctorname);
 		session.setAttribute("urnum", urnum);

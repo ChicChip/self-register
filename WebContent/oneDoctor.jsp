@@ -102,7 +102,7 @@
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(2)+"</td>");
 
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+targetdoctor.get(0)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+targetdoctor.get(0)+"><button>挂号到此医生</button> </a></td></tr>");
         
         
     }
