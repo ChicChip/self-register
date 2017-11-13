@@ -192,7 +192,11 @@ public class action {
 				max = similar_indicator;
 				targetrankOfdoctor = i;
 			}*/
-			similarindex[j]=similar_indicator;
+			similarindex[j++]=similar_indicator;
+		}
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
 		}
 
 		for(int i =0 ; i <similarindex.length;i++)
@@ -204,6 +208,12 @@ public class action {
 			}			
 		}
 		similarindex[targetrankOfdoctor1] = -1;
+		System.out.println("第一次");
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
+		
 		max = 0;
 		for(int i =0 ; i <similarindex.length;i++)
 		{
@@ -214,6 +224,11 @@ public class action {
 			}			
 		}
 		similarindex[targetrankOfdoctor2] = -1;
+		System.out.println("第2次");
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
 		max = 0;
 		for(int i =0 ; i <similarindex.length;i++)
 		{
@@ -223,13 +238,20 @@ public class action {
 				targetrankOfdoctor3 = i;
 			}			
 		}
-		
+		System.out.println("第3次");
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
 		
 		session.setAttribute("department_doctor", department_doctor);
 		//session.setAttribute("doctorname", doctorname);
 		session.setAttribute("targetrankOfdoctor1", targetrankOfdoctor1);
 		session.setAttribute("targetrankOfdoctor2", targetrankOfdoctor2);
 		session.setAttribute("targetrankOfdoctor3", targetrankOfdoctor3);
+		System.out.println(targetrankOfdoctor1);
+		System.out.println(targetrankOfdoctor2);
+		System.out.println(targetrankOfdoctor3);
 		System.out.println(yourillness);
 	//	System.out.println(department_doctor.get(targetrankOfdoctor));
 		return"Success";

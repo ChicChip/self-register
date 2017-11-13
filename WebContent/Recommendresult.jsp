@@ -105,19 +105,19 @@
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4+1)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4+2)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor1)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor1*4)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
             
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4+1)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4+2)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor2)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor2*4)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
         
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4+1)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4+2)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor3)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor3*4)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
         
             
             
