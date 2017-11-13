@@ -96,7 +96,7 @@
             <s:checkbox name="yourillness" fieldValue="病情2" label="病情2"/>
             <s:checkbox name="yourillness" fieldValue="病情3" label="病情3"/>
             <s:checkbox name="yourillness" fieldValue="其他" label="其他"/>
-            <button type="submit" class="btn btn-info">为我推荐医生</button> 
+            <button type="submit" class="home-subbtn">为我推荐医生</button> 
         </s:form>
     </center>
     </div>

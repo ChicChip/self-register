@@ -92,31 +92,41 @@
                            <!--Star-->
                            <center>
                           <div class="container">
-                          
-    <a href=Recommend.jsp><button type="button" class="home-subbtn">进入病情推荐功能</button></a>
-    
+    <%String room = session.getAttribute("room").toString();
+        out.print("<a href=chooseRecommend?room="+room+"><button type=\"button\" class=\"home-subbtn\">进入病情推荐功能</button></a>");%>
+   
+    <p>
+    <br /></p>
     </div></center>
-    
+    <table align = "center">
     <div class="container">
     <%List<String> department_doctor=session.getAttribute("department_doctor")==null?new LinkedList():(List<String>)session.getAttribute("department_doctor");
-
-
 if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
 {
     for(int i =0;i<department_doctor.size();i+=4)
     {
-        
-        out.print("<td align=\"center\"><a href=doctorQuery?doctorname="+ department_doctor.get(i)+">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i)+"</td>");
-        
+    	      out.print("<tr><td align = \"\"> <img src =\"images/temp/Pic05.jpg\"></td></tr>");
+    	      out.print("<tr><td align=\"\"><a href=doctorQuery?doctorname="+ department_doctor.get(i)+
+    	                ">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i)+"</td></tr>");
 
+    	out.print("<tr><td align=\"\"><p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i+1)+"</td></tr>");
+        out.print("<tr><td align=\"\"><p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i+2)+"</td></tr>");   	
+    	
+        
+        out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(i)+"><button class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
+
+       out.print("<tr><td><br /></td></tr>");
     }
     
 }
 else
     out.print("<p><font size=\"5\" face=\"STLiti\" color=\"white\">该科室无医生");
+
+
 %>
     
     </div>
+    </table>
                            
                            <!--Pages-->
                            <div class="Pages">

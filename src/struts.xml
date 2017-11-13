@@ -31,5 +31,20 @@
             <result name="Success">/home-sub.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
+        
+        <action name="chooseRecommend" class="s_rtest.action" method = "chooseRecommend">
+            <result name="1">/R1.jsp</result>
+            <result name="2">/R2.jsp</result>
+            <result name="3">/R3.jsp</result>
+            <result name="4">/R4.jsp</result>
+            <result name="5">/R5.jsp</result>
+            <result name="6">/R6.jsp</result>
+            <result name="7">/R7.jsp</result>
+            <result name="8">/R8.jsp</result>
+            <result name="9">/R9.jsp</result>
+            <result name="10">/R10.jsp</result>
+            <result name="11">/R11.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
     </package>
 </struts>

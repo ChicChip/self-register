@@ -94,19 +94,33 @@
     <tr>
     <%
     List<String> department_doctor = session.getAttribute("department_doctor")==null?new LinkedList():(List<String>)session.getAttribute("department_doctor");
-    String doctorname = session.getAttribute("doctorname").toString();
-    Integer targetrankOfdoctor = Integer.parseInt(session.getAttribute("targetrankOfdoctor").toString());
+   // String doctorname = session.getAttribute("doctorname").toString();
+    Integer targetrankOfdoctor1 = Integer.parseInt(session.getAttribute("targetrankOfdoctor1").toString());
+    Integer targetrankOfdoctor2 = Integer.parseInt(session.getAttribute("targetrankOfdoctor2").toString());
+    Integer targetrankOfdoctor3 = Integer.parseInt(session.getAttribute("targetrankOfdoctor3").toString());
     if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
     {
 
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor+1)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor+2)+"</td>");
-
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4+1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4+2)+"</td>");
             out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+doctorname+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor1)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4+1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4+2)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
+            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor2)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
         
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4+1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4+2)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
+            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor3)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
         
+            
+            
     }
     else
         out.print("<p><font size=\"5\" face=\"STLiti\" color=\"white\">该医生不存在，确认姓名无误后输入");
