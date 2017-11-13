@@ -25,7 +25,7 @@
                <dl><a href="#">职业卫生</a><a href="#">院长信箱</a><a href="#">加入收藏</a></dl>
                <a href="#">官网</a>
                <a href="#">耳鼻咽喉头颈外科</a>
-               <a href="#">广州市职业卫生信息网</a>
+               <a href="#">职业卫生信息网</a>
         </div>
         <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>
         <div class="mainnav">
@@ -71,7 +71,7 @@
                              <li><span><img src="images/H_guide07.jpg" /></span><a href="#">方位指南</a></li>
                              <li><span><img src="images/H_guide01.jpg" /></span><a href="#">住院病人就诊流程</a></li>
                              <li><span><img src="images/H_guide06.jpg" /></span><a href="#">门急诊就诊流程</a></li>
-                             <li><span><img src="images/H_guide04.jpg" /></span><a href="#">预约挂号</a></li>
+                             <li><span><img src="images/H_guide04.jpg" /></span><a href=gotoRegister>预约挂号</a></li>
                              <li><span><img src="images/H_guide08.jpg" /></span><a href="#">楼层指引</a></li>
                     </ul>
                     <div class="clear"></div>
@@ -137,7 +137,7 @@ rder:0px;color:#909993;}
         
         
          <div class=box><div class=box2><select name = "room"> 
-         <option selected>网站的封面 
+         <option selected>请选择科室 
     <option value=1>内科 </option>
     <option value=2>外科 </option>
     <option value=3>妇产科 </option>

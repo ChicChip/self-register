@@ -25,7 +25,7 @@
                <dl><a href="#">职业卫生</a><a href="#">院长信箱</a><a href="#">加入收藏</a></dl>
                <a href="#">官网</a>
                <a href="#">耳鼻咽喉头颈外科</a>
-               <a href="#">广州市职业卫生信息网</a>
+               <a href="#">职业卫生信息网</a>
         </div>
         <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>
         <div class="mainnav">
@@ -71,7 +71,7 @@
                              <li><span><img src="images/H_guide07.jpg" /></span><a href="#">方位指南</a></li>
                              <li><span><img src="images/H_guide01.jpg" /></span><a href="#">住院病人就诊流程</a></li>
                              <li><span><img src="images/H_guide06.jpg" /></span><a href="#">门急诊就诊流程</a></li>
-                             <li><span><img src="images/H_guide04.jpg" /></span><a href="#">预约挂号</a></li>
+                             <li><span><img src="images/H_guide04.jpg" /></span><a href=gotoRegister>预约挂号</a></li>
                              <li><span><img src="images/H_guide08.jpg" /></span><a href="#">楼层指引</a></li>
                     </ul>
                     <div class="clear"></div>
@@ -98,26 +98,29 @@
     Integer targetrankOfdoctor1 = Integer.parseInt(session.getAttribute("targetrankOfdoctor1").toString());
     Integer targetrankOfdoctor2 = Integer.parseInt(session.getAttribute("targetrankOfdoctor2").toString());
     Integer targetrankOfdoctor3 = Integer.parseInt(session.getAttribute("targetrankOfdoctor3").toString());
+    System.out.println(targetrankOfdoctor1);
+    System.out.println(targetrankOfdoctor2);
+    System.out.println(targetrankOfdoctor3);
+    System.out.println("size:"+department_doctor.size());
     if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
     {
-
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4+1)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor1*4+2)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor1*4)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+    	out.print("<tr><td align = \"center\"> <img src ="+department_doctor.get(targetrankOfdoctor1*5+4)+"></td></tr>");
+        out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师姓名："+department_doctor.get(targetrankOfdoctor1*5)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师科室："+department_doctor.get(targetrankOfdoctor1*5+1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治方向："+department_doctor.get(targetrankOfdoctor1*5+2)+"</td>");
+            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(targetrankOfdoctor1*5)+"><button type=\"button\" class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
             
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4+1)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor2*4+2)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor2*4)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
-        
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4+1)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(targetrankOfdoctor3*4+2)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=doctorQuery?doctorname="+department_doctor.get(targetrankOfdoctor3*4)+"><button type=\"button\" class=\"btn btn-info\">挂号到此医生</button> </a></td></tr>");
+            out.print("<tr><td align = \"center\"> <img src ="+department_doctor.get(targetrankOfdoctor2*5+4)+"></td></tr>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师姓名："+department_doctor.get(targetrankOfdoctor2*5)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师科室："+department_doctor.get(targetrankOfdoctor2*5+1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治方向："+department_doctor.get(targetrankOfdoctor2*5+2)+"</td>");         
+            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(targetrankOfdoctor2*5)+"><button type=\"button\" class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
+            
+            out.print("<tr><td align = \"center\"> <img src ="+department_doctor.get(targetrankOfdoctor3*5+4)+"></td></tr>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师姓名："+department_doctor.get(targetrankOfdoctor3*5)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师科室："+department_doctor.get(targetrankOfdoctor3*5+1)+"</td>");
+            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治方向："+department_doctor.get(targetrankOfdoctor3*5+2)+"</td>");
+            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(targetrankOfdoctor3*5)+"><button type=\"button\" class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
         
             
             

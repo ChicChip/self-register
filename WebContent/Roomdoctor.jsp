@@ -25,7 +25,7 @@
                <dl><a href="#">职业卫生</a><a href="#">院长信箱</a><a href="#">加入收藏</a></dl>
                <a href="#">官网</a>
                <a href="#">耳鼻咽喉头颈外科</a>
-               <a href="#">广州市职业卫生信息网</a>
+               <a href="#">职业卫生信息网</a>
         </div>
         <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>
         <div class="mainnav">
@@ -71,7 +71,7 @@
                              <li><span><img src="images/H_guide07.jpg" /></span><a href="#">方位指南</a></li>
                              <li><span><img src="images/H_guide01.jpg" /></span><a href="#">住院病人就诊流程</a></li>
                              <li><span><img src="images/H_guide06.jpg" /></span><a href="#">门急诊就诊流程</a></li>
-                             <li><span><img src="images/H_guide04.jpg" /></span><a href="#">预约挂号</a></li>
+                             <li><span><img src="images/H_guide04.jpg" /></span><a href=gotoRegister>预约挂号</a></li>
                              <li><span><img src="images/H_guide08.jpg" /></span><a href="#">楼层指引</a></li>
                     </ul>
                     <div class="clear"></div>
@@ -103,14 +103,15 @@
     <%List<String> department_doctor=session.getAttribute("department_doctor")==null?new LinkedList():(List<String>)session.getAttribute("department_doctor");
 if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
 {
-    for(int i =0;i<department_doctor.size();i+=4)
+    for(int i =0;i<department_doctor.size();i+=5)
     {
-    	      out.print("<tr><td align = \"\"> <img src =\"images/temp/Pic05.jpg\"></td></tr>");
+    	      out.print("<tr><td align = \"\"> <img src ="+department_doctor.get(i+4)+"></td></tr>");
+    	      System.out.print(department_doctor.get(i+4));
     	      out.print("<tr><td align=\"\"><a href=doctorQuery?doctorname="+ department_doctor.get(i)+
-    	                ">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i)+"</td></tr>");
+    	                ">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师姓名："+department_doctor.get(i)+"</td></tr>");
 
-    	out.print("<tr><td align=\"\"><p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i+1)+"</td></tr>");
-        out.print("<tr><td align=\"\"><p><font size=\"5\" face=\"STLiti\" color=\"black\">"+department_doctor.get(i+2)+"</td></tr>");   	
+    	out.print("<tr><td align=\"\"><p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师科室："+department_doctor.get(i+1)+"</td></tr>");
+        out.print("<tr><td align=\"\"><p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治方向："+department_doctor.get(i+2)+"</td></tr>");   	
     	
         
         out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(i)+"><button class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");

@@ -180,11 +180,11 @@ public class action {
 		int targetrankOfdoctor1 = 0;
 		int targetrankOfdoctor2 = 0;
 		int targetrankOfdoctor3 = 0;
-		double[] similarindex = new double[10];
+		double[] similarindex = new double[department_doctor.size()/5];
 		int j = 0;
 		System.out.println("111111111111111111111111");
 		System.out.println(department_doctor.size());
-		for (int i = 0;i<department_doctor.size();i += 4)
+		for (int i = 0;i<department_doctor.size();i += 5)
 		{
 			similar_indicator=l.LevenshteinDistancePercent(yourillness, department_doctor.get(i+2));
 			/*if (similar_indicator>max)
@@ -201,7 +201,7 @@ public class action {
 
 		for(int i =0 ; i <similarindex.length;i++)
 		{
-			if(similarindex[i]>max)
+			if(similarindex[i]>=max)
 			{
 				max = similarindex[i];
 				targetrankOfdoctor1 = i;
@@ -217,7 +217,7 @@ public class action {
 		max = 0;
 		for(int i =0 ; i <similarindex.length;i++)
 		{
-			if(similarindex[i]>max)
+			if(similarindex[i]>=max)
 			{
 				max = similarindex[i];
 				targetrankOfdoctor2 = i;
@@ -232,7 +232,7 @@ public class action {
 		max = 0;
 		for(int i =0 ; i <similarindex.length;i++)
 		{
-			if(similarindex[i]>max)
+			if(similarindex[i]>=max)
 			{
 				max = similarindex[i];
 				targetrankOfdoctor3 = i;
