@@ -80,6 +80,7 @@
             </div>
             <!--左边 End-->
             <!--右边-->
+            
             <div class="RightSidebar">
                   <div class="Current">
                         <dl>你现在的位置:  首页 > 医院概括 > <span>医院概括</span></dl>
@@ -89,10 +90,12 @@
                   
                   
                            <!--Star-->
+                           <center>
                           <div class="container">
-    <a href=Recommend.jsp><button type="button" class="btn btn-info">进入病情推荐功能</button></a>
+                          
+    <a href=Recommend.jsp><button type="button" class="home-subbtn">进入病情推荐功能</button></a>
     
-    </div>
+    </div></center>
     
     <div class="container">
     <%List<String> department_doctor=session.getAttribute("department_doctor")==null?new LinkedList():(List<String>)session.getAttribute("department_doctor");

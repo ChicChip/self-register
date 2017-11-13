@@ -89,14 +89,38 @@
                   
                   
                            <!--Star-->
+                           <style>
+    input{
+                border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 3px;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+            input:focus{
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+            }
+    </style>
                           <div class="container">
     <center>
         <form role="form" action="doctorQuery">
         <div class="form-group">
-        <label for="name">输入需查询医生</label>
+       <label for="name" style="font-size:15px;">输入需查询医生</label>
         <input type="text" name="doctorname" id="name" >
         </div>
-      <a herf=doctorQuery> <button type="submit" >查询</button></a>
+        <p>
+        </p>
+      <a herf=doctorQuery> <button type="submit" class="home-subbtn">查询</button></a>
+      <p>
+      <br />
+        </p>
         </form>
         <form role="form" action="showroomDoc">
         
@@ -131,8 +155,9 @@ rder:0px;color:#909993;}
          
        </select>  </div></div>
        
-       
-       <button type="submit" class="btn">进入此科室</button>
+       <p>
+        </p>
+       <button type="submit" class="home-subbtn">进入此科室</button>
         </form>
     </center>
     </div>
@@ -140,8 +165,8 @@ rder:0px;color:#909993;}
                            <!--Pages-->
                            <div class="Pages">
                                   <span class="p_cur">目前在第<b>1</b>页,</span>
-                                  <span class="p_count">共有<b>3</b>页,</span>
-                                  <span class="p_total">共有<b>3</b>条记录</span>
+                                  <span class="p_count">共有<b>1</b>页,</span>
+                                  <span class="p_total">共有<b>1</b>条记录</span>
                                   <span class="p_page">
                                   <a href="#" class="a_first">首页</a><a href="#" class="a_prev">上一页</a>
                                   <em class="num"><a href="#" class="a_cur">1</a><a href="#">2</a><a href="#">3</a></em>

@@ -95,14 +95,12 @@
     <%
     List<String> targetdoctor = session.getAttribute("targetdoctor")==null?new LinkedList():(List<String>)session.getAttribute("targetdoctor");
     if(!targetdoctor.isEmpty()&& targetdoctor!=null&&targetdoctor.size()!=0)
-    {
-
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(0)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(1)+"</td>");
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+targetdoctor.get(2)+"</td>");
-
-            out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"work"+"</td>");
-            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+targetdoctor.get(0)+"><button>挂号到此医生</button> </a></td></tr>");
+    {   
+            out.print("<tr><td align = \"center\"> <img src =\"images/temp/Pic05.jpg\">");
+            out.print("<tr><td align=\"\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师姓名："+targetdoctor.get(0)+"</td>");
+            out.print("<tr><td align=\"\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"医师科室："+targetdoctor.get(1)+"</td>");
+            out.print("<tr><td align=\"\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治方向："+targetdoctor.get(2)+"</td>");
+            out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+targetdoctor.get(0)+"><button class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
         
         
     }
