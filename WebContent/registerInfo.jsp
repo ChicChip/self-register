@@ -24,37 +24,37 @@
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">姓名</label>
     <div class="col-sm-10">
-      <input type="text" name="patientname" class="form-control" id="name" placeholder="请输入姓名">
+      <input type="text" name="patientname" class="form-control" id="name" placeholder="请输入姓名" required="required">
     </div>
   </div>
   <div class="form-group">
     <label for="sex" class="col-sm-2 control-label">性别</label>
     <div class="col-sm-10">
-      <input type="text" name="sex" class="form-control" id="sex" placeholder="性别">
+      <input type="text" name="sex" class="form-control" id="sex" placeholder="性别" required="required">
     </div>
   </div>
   <div class="form-group">
     <label for="age" class="col-sm-2 control-label">年龄</label>
     <div class="col-sm-10">
-      <input type="text" name="age" class="form-control" id="age" placeholder="请输入年龄">
+      <input type="text" name="age" class="form-control" id="age" placeholder="请输入年龄" required="required">
     </div>
   </div>
   <div class="form-group">
     <label for="id" class="col-sm-2 control-label">身份证号</label>
     <div class="col-sm-10">
-      <input type="text" name="id" class="form-control" id="id" placeholder="请输入身份证号">
+      <input type="text" name="id" class="form-control" id="id" placeholder="请输入身份证号" required="required">
     </div>
   </div>
   <div class="form-group">
     <label for="phonenumber" class="col-sm-2 control-label">联系方式</label>
     <div class="col-sm-10">
-      <input type="text" name="tel" class="form-control" id="phonenumber" placeholder="请输入联系方式">
+      <input type="text" name="tel" class="form-control" id="phonenumber" placeholder="请输入联系方式" required="required">
     </div>
   </div>
   <div class="form-group">
     <label for="doctorname" class="col-sm-2 control-label">所挂医生</label>
     <div class="col-sm-10">
-      <input type="text" name="doctorname" value='<s:property value="doctorname"/>' class="form-control" id="doctorname" readonly="true">
+      <input type="text" name="doctorname" value='<s:property value="doctorname"/>' class="form-control" id="doctorname" readonly="true" required="required">
     </div>
   </div>
   <div class="form-group">

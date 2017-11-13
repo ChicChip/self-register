@@ -221,6 +221,5 @@ public class action {
 		//department_doctor = c.select(mysql_department_doctor);
 		System.out.println(room);
 		return "Success";
-	}
-	
+	}	
 }
