@@ -26,6 +26,7 @@ public class action {
     private String sex;
     private String room;
     private String direction;
+    private String recommendRoom;
     private int NUMLIMIT = 20;
     private double MAX = 999999999;
     private int limitpatients;
@@ -131,7 +132,8 @@ public class action {
 		DBConnection c = new DBConnection();
 		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
 				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\")";
-		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" +doctorname+"\"";
+		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" + doctorname + "\"";
+		System.out.println(mysql_forthisdoctor);
 		Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
 		session.setAttribute("doctorname", doctorname);
 		session.setAttribute("urnum", urnum);
@@ -175,22 +177,83 @@ public class action {
 		LevenshteinDistance l = new LevenshteinDistance();
 		double max = 0 ;
 		double similar_indicator;
-		int targetrankOfdoctor = 0;
-		for (int i = 0;i<department_doctor.size();i += 4)
+		int targetrankOfdoctor1 = 0;
+		int targetrankOfdoctor2 = 0;
+		int targetrankOfdoctor3 = 0;
+		double[] similarindex = new double[department_doctor.size()/5];
+		int j = 0;
+		System.out.println("111111111111111111111111");
+		System.out.println(department_doctor.size());
+		for (int i = 0;i<department_doctor.size();i += 5)
 		{
 			similar_indicator=l.LevenshteinDistancePercent(yourillness, department_doctor.get(i+2));
-			if (similar_indicator>max)
+			/*if (similar_indicator>max)
 			{
 				max = similar_indicator;
 				targetrankOfdoctor = i;
-			}
+			}*/
+			similarindex[j++]=similar_indicator;
 		}
-		doctorname = department_doctor.get(targetrankOfdoctor);
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
+
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			if(similarindex[i]>=max)
+			{
+				max = similarindex[i];
+				targetrankOfdoctor1 = i;
+			}			
+		}
+		similarindex[targetrankOfdoctor1] = -1;
+		System.out.println("第一次");
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
+		
+		max = 0;
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			if(similarindex[i]>=max)
+			{
+				max = similarindex[i];
+				targetrankOfdoctor2 = i;
+			}			
+		}
+		similarindex[targetrankOfdoctor2] = -1;
+		System.out.println("第2次");
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
+		max = 0;
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			if(similarindex[i]>=max)
+			{
+				max = similarindex[i];
+				targetrankOfdoctor3 = i;
+			}			
+		}
+		System.out.println("第3次");
+		for(int i =0 ; i <similarindex.length;i++)
+		{
+			System.out.println(similarindex[i]);		
+		}
+		
 		session.setAttribute("department_doctor", department_doctor);
-		session.setAttribute("doctorname", doctorname);
-		session.setAttribute("targetrankOfdoctor", targetrankOfdoctor);
+		//session.setAttribute("doctorname", doctorname);
+		session.setAttribute("targetrankOfdoctor1", targetrankOfdoctor1);
+		session.setAttribute("targetrankOfdoctor2", targetrankOfdoctor2);
+		session.setAttribute("targetrankOfdoctor3", targetrankOfdoctor3);
+		System.out.println(targetrankOfdoctor1);
+		System.out.println(targetrankOfdoctor2);
+		System.out.println(targetrankOfdoctor3);
 		System.out.println(yourillness);
-		System.out.println(department_doctor.get(targetrankOfdoctor));
+	//	System.out.println(department_doctor.get(targetrankOfdoctor));
 		return"Success";
 	}
 	
@@ -218,6 +281,7 @@ public class action {
 //		System.out.println(department_doctor.hashCode());
 		System.out.println(String.format("Hash is %d", department_doctor.hashCode()));
 		session.setAttribute("department_doctor", department_doctor);
+		session.setAttribute("room", room);
 		//department_doctor = c.select(mysql_department_doctor);
 		System.out.println(room);
 		return "Success";

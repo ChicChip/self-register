@@ -20,7 +20,7 @@
     <h1></h1>
     <div class="container">
     <center>
- <s:form class="form-horizontal" role="form" action="registerInfo">
+        <s:form class="form-horizontal" role="form" action="registerInfo">
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">姓名</label>
     <div class="col-sm-10">
