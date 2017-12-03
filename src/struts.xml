@@ -18,6 +18,7 @@
         </action>
         
         <action name="beMypatient" class="s_rtest.action" method = "beMypatient">
+            <result name="input">dateselect.jsp</result>
             <result name="Success">/registerInfo.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
@@ -29,6 +30,11 @@
         
         <action name="gotoRegister" class="s_rtest.action" method = "gotoRegister">
             <result name="Success">/home-sub.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+         <action name="selectaction" class="s_rtest.action" method = "selectaction">
+            <result name="Success">/registerInfo.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
         

@@ -94,14 +94,15 @@
         <table align = "center">
         <tr>
         <%
-        Integer urnum = Integer.parseInt(session.getAttribute("urnum").toString());
-        String doctorname = session.getAttribute("doctorname").toString();
+        Integer rank = Integer.parseInt(session.getAttribute("rank").toString());
+        String bookedtime = (String) session.getAttribute("bookedtime");
+        String doctorname =(String) session.getAttribute("doctorname");
         
-        out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"你的挂号:"+urnum+"</td>");
+        out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"你的挂号:"+rank+"</td>");
         
         out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"主治医师:"+doctorname+"</td>");
         
-        
+        out.print("<tr><td align=\"center\">"+"<p><font size=\"5\" face=\"STLiti\" color=\"black\">"+"预约时间:"+bookedtime+"</td>");
         %>
         
         </tr>

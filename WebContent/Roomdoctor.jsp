@@ -103,7 +103,7 @@
     <%List<String> department_doctor=session.getAttribute("department_doctor")==null?new LinkedList():(List<String>)session.getAttribute("department_doctor");
 if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
 {
-    for(int i =0;i<department_doctor.size();i+=5)
+    for(int i =0;i<department_doctor.size();i+=6)
     {
     	      out.print("<tr><td align = \"\"> <img src ="+department_doctor.get(i+4)+"></td></tr>");
     	      System.out.print(department_doctor.get(i+4));
@@ -115,8 +115,9 @@ if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.siz
     	
         
         out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(i)+"><button class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
-
+    
        out.print("<tr><td><br /></td></tr>");
+
     }
     
 }

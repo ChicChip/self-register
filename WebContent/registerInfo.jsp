@@ -22,9 +22,9 @@
     <center>
         <s:form class="form-horizontal" role="form" action="registerInfo">
   <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">姓名</label>
+    <label for="patientname" class="col-sm-2 control-label">姓名</label>
     <div class="col-sm-10">
-      <input type="text" name="name" class="form-control" id="name" placeholder="请输入姓名">
+      <input type="text" name="patientname" class="form-control" id="patientname" placeholder="请输入姓名">
     </div>
   </div>
   <div class="form-group">
@@ -46,15 +46,35 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="phonenumber" class="col-sm-2 control-label">联系方式</label>
+    <label for="tel" class="col-sm-2 control-label">联系方式</label>
     <div class="col-sm-10">
-      <input type="text" name="phonenumber" class="form-control" id="phonenumber" placeholder="请输入联系方式">
+      <input type="text" name="tel" class="form-control" id="tel" placeholder="请输入联系方式">
     </div>
   </div>
+  
   <div class="form-group">
     <label for="doctorname" class="col-sm-2 control-label">所挂医生</label>
     <div class="col-sm-10">
       <input type="text" name="doctorname" value='<s:property value="doctorname"/>' class="form-control" id="doctorname" readonly="true">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="selecteddate" class="col-sm-2 control-label">挂号日期</label>
+    <div class="col-sm-10">
+      <input type="text" name="selecteddate" value='<s:property value="selecteddate"/>' class="form-control" id="selecteddate" readonly="true">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="timeseg" class="col-sm-2 control-label">时间段</label>
+    <div class="col-sm-10">
+      <input type="text" name="timeseg" value=<%String timeseg = (String)session.getAttribute("timeseg");if (timeseg.equals("up")) {out.print("上午");} else {out.print("下午"); }%> class="form-control" id="timeseg" readonly="true">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="rank" class="col-sm-2 control-label">排号</label>
+    <div class="col-sm-10">
+      <input type="text" name="rank" value=<%String rank = (String)session.getAttribute("rank");out.print(rank); %> class="form-control" id="rank" readonly="true">
     </div>
   </div>
   <div class="form-group">

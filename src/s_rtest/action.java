@@ -1,6 +1,11 @@
 package s_rtest;
 
 import java.util.HashMap;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;  
+import java.util.Calendar;  
+import java.util.Date; 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +32,15 @@ public class action {
     private String room;
     private String direction;
     private String recommendRoom;
-    private int NUMLIMIT = 20;
+    private String timeseg;
+    private int rank;
+    public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+	private int NUMLIMIT = 20;
     private double MAX = 999999999;
     private int limitpatients;
     private String mysql_department_doctor;
@@ -37,6 +50,7 @@ public class action {
 	ServletRequest request2 = ServletActionContext.getRequest();
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
+    private String selecteddate ;
 	public String getLoginname() {
 		return loginname;
 	}
@@ -128,37 +142,84 @@ public class action {
 	}
 	
 	//挂号信息插入数据库
-	public String registerInfo() {
+	public String registerInfo() throws ParseException {
 		DBConnection c = new DBConnection();
+		System.out.println("info:"+selecteddate+timeseg+rank);
 		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
-				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\")";
+				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\",\"" + String.valueOf(rank)+ "\",\"" + selecteddate+"\")";
 		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" + doctorname + "\"";
 		System.out.println(mysql_forthisdoctor);
-		Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
+		System.out.println(insertpatient);
+		System.out.println("if received:"+doctorname+selecteddate+"!!!!"+timeseg);
+		//Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date dt1 = new Date();
+		if (timeseg.equals("上午"))
+			 dt1 = sdf.parse(selecteddate+" 08:00");
+		else
+			 dt1 = sdf.parse(selecteddate+" 14:00");	
+		long waittime = (rank-1) * 24 *60 * 1000;
+		Date dt2 = new Date(dt1.getTime()+waittime);
+		System.out.println(sdf.format(dt2));
+		String bookedtime ="";
+		bookedtime = sdf.format(dt2);
 		session.setAttribute("doctorname", doctorname);
-		session.setAttribute("urnum", urnum);
+		session.setAttribute("rank", rank);
+		session.setAttribute("bookedtime", bookedtime);
 		c.ope(insertpatient);
 		return "Success";
 	}
 	
 	//选择医生，人满失败，人少成功
-	public String beMypatient() {
+	public String beMypatient() throws ParseException {
 		//int register_flag = 1;
+		System.out.println("doctorname1:"+doctorname);
+		if(doctorname == null || doctorname.equals(""))
+			doctorname = (String) session.getAttribute("doctorname1");
+		else
+			session.setAttribute(doctorname, "doctorname1");
+		if(selecteddate == null || selecteddate.equals(""))
+			return "input";
+		session.setAttribute("timeseg",timeseg );
+		int daysbetween;
+		String nowdate ="";
+		Date dt = new Date();
+		Date dt1 = new Date();
+		Date dt2 = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+		nowdate = sdf.format(dt);
+		dt1 =sdf.parse(nowdate);
+		dt2 =sdf.parse(selecteddate);
+		daysbetween = (int) ((dt2.getTime() - dt1.getTime()) / (1000*3600*24));
+		System.out.println("selecteddate:"+selecteddate);
+		System.out.println("nowdate:"+nowdate);
+		System.out.println("daysbetween:"+daysbetween);
+		if (daysbetween > 5)
+			return "overdate";
 		String register_flag = "";
+		System.out.println("doctorname2:"+doctorname + "date:" + selecteddate);
 		DBConnection c = new DBConnection();
-		String sql_fordoctor = "SELECT * from doctor where doctorname = \"" + doctorname + "\"";
+		String sql_fordoctor = "SELECT * from workdate where doctorname = \"" + doctorname + "\"";
+		System.out.println(sql_fordoctor);
 		targetdoctor = c.select(sql_fordoctor);
-		System.out.println(doctorname);
-		System.out.println(targetdoctor.get(0)+targetdoctor.get(1)+targetdoctor.get(2));
-		int thislimit = Integer.valueOf(targetdoctor.get(3));
+		System.out.println(targetdoctor.get(0));
+		int targetRank;
+		if (timeseg.equals("down"))
+			targetRank = 2 * daysbetween;
+		else
+			targetRank = 2 * daysbetween -1 ;
+		int thislimit = Integer.valueOf(targetdoctor.get(targetRank));
 		String thisdoctorname = targetdoctor.get(0);
-		if(thislimit >= 20)
-			register_flag = "Fail";
-			
+		if(thislimit >= 10)
+			register_flag = "overpeople";
 		else
 		{
 			thislimit++;
-			String updatevolume = "UPDATE doctor SET volume = " + thislimit + " where doctorname = \"" + thisdoctorname + "\"" ;
+			System.out.println(String.valueOf(thislimit));
+			rank = thislimit;
+			session.setAttribute("rank",String.valueOf(rank));
+			String updatevolume = "UPDATE workdate SET "+ daysbetween + timeseg +" = " + rank + " where doctorname = \"" + thisdoctorname + "\"" ;
+			System.out.println(updatevolume);
 			c.ope(updatevolume);
 			register_flag = "Success";
 		}
@@ -295,6 +356,26 @@ public class action {
 	public String gotoRegister()
 	{
 		return "Success";
+	}
+	public String selectaction()
+	{
+		System.out.print(selecteddate);
+		System.out.print("00000000000");
+		doctorname = (String)session.getAttribute("doctorname");
+		System.out.print("00000000000");
+		return "Success";
+	}
+	public String getSelecteddate() {
+		return selecteddate;
+	}
+	public void setSelecteddate(String selecteddate) {
+		this.selecteddate = selecteddate;
+	}
+	public String getTimeseg() {
+		return timeseg;
+	}
+	public void setTimeseg(String timeseg) {
+		this.timeseg = timeseg;
 	}
 	
 }
