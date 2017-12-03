@@ -32,6 +32,41 @@
             <result name="Fail">/Fail.jsp</result>
         </action>
         
+        <action name="login" class="s_rtest.sign" method = "Login">
+            <result name="Success">/index.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="reg" class="s_rtest.sign" method = "reg">
+            <result name="Success">/login.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="signout" class="s_rtest.sign" method = "Signout">
+            <result name="Success">/index.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="mymessage" class="s_rtest.sign" method = "Showmymessage">
+            <result name="Success">/Mymessage.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="docmessage" class="s_rtest.sign" method = "Showdocmessage">
+            <result name="Success">/Docmessage.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="schedule" class="s_rtest.sign" method = "Showschedule">
+            <result name="Success">/Schedule.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="showcare" class="s_rtest.sign" method = "Showcare">
+            <result name="Success">/Showcare.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
         <action name="chooseRecommend" class="s_rtest.action" method = "chooseRecommend">
             <result name="1">/R1.jsp</result>
             <result name="2">/R2.jsp</result>

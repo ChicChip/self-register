@@ -14,9 +14,6 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionContext;
 
 public class action {
-    private String loginname;
-    private String password;
-    private String loginer;
     private String patientname;
     private int age;
     private String id;
@@ -37,24 +34,7 @@ public class action {
 	ServletRequest request2 = ServletActionContext.getRequest();
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
-	public String getLoginname() {
-		return loginname;
-	}
-	public void setLoginname(String loginname) {
-		this.loginname = loginname;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getLoginer() {
-		return loginer;
-	}
-	public void setLoginer(String loginer) {
-		this.loginer = loginer;
-	}
+    
 	public String getPatientname() {
 		return patientname;
 	}
@@ -286,4 +266,14 @@ public class action {
 		System.out.println(room);
 		return "Success";
 	}	
+	public String chooseRecommend()
+	{
+		System.out.println(room);
+		return room;
+		
+	}
+	public String gotoRegister()
+	{
+		return "Success";
+	}
 }
