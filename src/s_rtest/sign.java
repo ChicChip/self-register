@@ -119,7 +119,7 @@ public class sign {
 		System.out.println(nickname);
 		res = con.Select(sql, nickname);
 		System.out.println(res);
-    	return "";
+    	return "Success";
     }
     
     //展示医生信息
@@ -128,12 +128,12 @@ public class sign {
 		String sql="select * from doctor where doctorname=?";
 		DBlogin con = new DBlogin();
 		res = con.Select(sql, nickname);
-    	return "";
+    	return "Success";
     }
     
     //展示医生时间表
     public String Showschedule() {
-    	return "";
+    	return "Success";
     }
     
     //展示病人事务
@@ -147,7 +147,7 @@ public class sign {
 		res.clear();
 		res = con.Select(sql1, id);
 		System.out.println(res);
-    	return "";
+    	return "Success";
     }
     
 	public String getNickname() {
