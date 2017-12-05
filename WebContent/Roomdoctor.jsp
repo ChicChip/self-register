@@ -133,8 +133,9 @@ if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.siz
     	
         
         out.print("<tr><td align=\"center\"><a href=beMypatient?doctorname="+department_doctor.get(i)+"><button class=\"home-subbtn\">挂号到此医生</button> </a></td></tr>");
-
+    
        out.print("<tr><td><br /></td></tr>");
+
     }
     
 }
