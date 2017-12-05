@@ -89,10 +89,10 @@ public class sign {
 		    	return "Fail";
 		    }
 		    else {
-		        if(res.get(6).equals(password)) {
+		        if(res.get(5).equals(password)) {
 		    	    session.setAttribute("user", nickname);
 		    	    session.setAttribute("type", type);
-		    	    return "Sucess";
+		    	    return "Success";
 		        }
 		        else{
 		        	result = "ÃÜÂë´íÎó£¡";
