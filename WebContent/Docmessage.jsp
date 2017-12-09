@@ -63,6 +63,7 @@
         </div>
     </div>
     <!--top End-->
+    
     <!--Star-->
     <div style="background:url(images/temp/Ban_news.jpg) no-repeat center top">
     <div class="H193"><span class="leftBg"></span><span class="rightBg"></span></div>
@@ -89,7 +90,7 @@
                              <li><span><img src="images/H_guide07.jpg" /></span><a href="#">方位指南</a></li>
                              <li><span><img src="images/H_guide01.jpg" /></span><a href="#">住院病人就诊流程</a></li>
                              <li><span><img src="images/H_guide06.jpg" /></span><a href="#">门急诊就诊流程</a></li>
-                             <li><span><img src="images/H_guide04.jpg" /></span><a href="#">预约挂号</a></li>
+                             <li><span><img src="images/H_guide04.jpg" /></span><a href=gotoRegister>预约挂号</a></li>
                              <li><span><img src="images/H_guide08.jpg" /></span><a href="#">楼层指引</a></li>
                     </ul>
                     <div class="clear"></div>
@@ -98,6 +99,7 @@
             </div>
             <!--左边 End-->
             <!--右边-->
+            
             <div class="RightSidebar">
                   <div class="Current">
                         <dl>你现在的位置:  首页 > 医院概括 > <span>医院概括</span></dl>
@@ -107,19 +109,44 @@
                   
                   
                            <!--Star-->
-                          <div class="container">
-    <center>
-        <s:form role="form" action="recommend">
-            <s:checkbox name="yourillness" fieldValue="子宫肌瘤" label="子宫肌瘤"/>
-            <s:checkbox name="yourillness" fieldValue="不孕不育" label="不孕不育"/>
-            <s:checkbox name="yourillness" fieldValue="高危妊娠" label="高危妊娠"/>
-            <s:checkbox name="yourillness" fieldValue="妊娠期并发症" label="妊娠期并发症"/>
-            <s:checkbox name="yourillness" fieldValue="产科常见病" label="产科常见病"/>
-            <s:checkbox name="yourillness" fieldValue="其他" label="其他"/>
-            <button type="submit" class="home-subbtn">为我推荐医生</button> 
-        </s:form>
-    </center>
+                           <h1>您的病人</h1>
+   <table class="table table-striped" align="center">
+    <div class="container">
+    <tr>
+    <td>姓名</td>
+    <td>性别</td>
+    <td>ID</td>
+    <td>年龄</td>
+    <td>联系方式</td>
+    <td>医生</td>
+    <td>单号</td>
+    <td>日期</td>
+<tr>
+    <%List<String> department_doctor=session.getAttribute("docmessage")==null?new LinkedList():(List<String>)session.getAttribute("docmessage");
+if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
+{
+    for(int i =0;i<department_doctor.size();i+=10)
+    {
+    	out.print("<td>"+department_doctor.get(i+0)+"</td>");
+    	out.print("<td>"+department_doctor.get(i+5)+"</td>");
+    	out.print("<td>"+department_doctor.get(i+1)+"</td>");
+        out.print("<td>"+department_doctor.get(i+2)+"</td>");   	
+        out.print("<td>"+department_doctor.get(i+3)+"</td>");
+        out.print("<td>"+department_doctor.get(i+4)+"</td>");
+        out.print("<td>"+department_doctor.get(i+6)+"</td>");
+        out.print("<td>"+department_doctor.get(i+8)+"</td><tr/>");
+
+    }
+    
+}
+else
+    out.print("<p><font size=\"5\" face=\"STLiti\" color=\"white\">无历史信息");
+
+
+%>
+    
     </div>
+    </table>
                            
                            <!--Pages-->
                            <div class="Pages">
@@ -175,4 +202,3 @@
     
 </body>
 </html>
->

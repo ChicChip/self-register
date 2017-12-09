@@ -17,9 +17,23 @@
 <title>登录</title>
 </head>
 <body>
-    <h1>医生时间表</h1>
+    <h1>欢迎</h1>
     <div class="container">
-        
+        <s:form role="form" action="login">
+        <div class="form-group">
+          <label for="name">用户名</label>
+          <input type="text" name="nickname" class="form-control" id="name" placeholder="昵称" required="required">
+        </div>
+        <div class="form-group">
+          <label for="key">密码</label>
+          <input type="password" name="password" class="form-control" id="key" placeholder="密码" required="required">
+        </div>
+        <div class="form-group">
+          <s:select class="form-control" name="type" list="#{1:'普通用户',2:'医生'}" listKey="key" listValue="value" headerKey="0" headerValue="请选择类型"></s:select> 
+        </div>
+          <button type="submit" class="btn btn-info">登录</button>
+        </s:form>
+        <a href="Reg.jsp">还没有账号？点我注册</a>
         
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 

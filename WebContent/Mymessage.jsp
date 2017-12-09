@@ -17,9 +17,8 @@
 <title>登录</title>
 </head>
 <body>
-    <h1>医生时间表</h1>
+    <h1>您的信息</h1>
     <div class="container">
-        
         
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 

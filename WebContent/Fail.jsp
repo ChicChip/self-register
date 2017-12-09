@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+    <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,15 +14,14 @@
         <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-<title>登录</title>
+<title>Fail</title>
 </head>
 <body>
-    <h1>医生时间表</h1>
-    <div class="container">
-        
-        
-    </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<h1>失败!</h1>
+<s:property value="result"/><br/>
+<a href="login.jsp"><button type="button" class="btn btn-default">返回登录</button></a>
+<a href="Reg.jsp"><button type="button" class="btn btn-default">返回注册</button></a>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>

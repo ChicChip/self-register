@@ -19,9 +19,6 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionContext;
 
 public class action {
-    private String loginname;
-    private String password;
-    private String loginer;
     private String patientname;
     private int age;
     private String id;
@@ -36,6 +33,7 @@ public class action {
     private int rank;
     private String nickname;
     private int deleterank;
+    private String selecteddate;
     public int getRank() {
 		return rank;
 	}
@@ -53,25 +51,8 @@ public class action {
 	ServletRequest request2 = ServletActionContext.getRequest();
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
-    private String selecteddate ;
-	public String getLoginname() {
-		return loginname;
-	}
-	public void setLoginname(String loginname) {
-		this.loginname = loginname;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getLoginer() {
-		return loginer;
-	}
-	public void setLoginer(String loginer) {
-		this.loginer = loginer;
-	}
+    
+
 	public String getPatientname() {
 		return patientname;
 	}
@@ -148,11 +129,8 @@ public class action {
 	public String registerInfo() throws ParseException {
 		DBConnection c = new DBConnection();
 		System.out.println("info:"+selecteddate+timeseg+rank);
-		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
-				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\",\"" + String.valueOf(rank)+ "\",\"" + selecteddate+"\")";
 		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" + doctorname + "\"";
 		System.out.println(mysql_forthisdoctor);
-		System.out.println(insertpatient);
 		System.out.println("if received:"+doctorname+selecteddate+"!!!!"+timeseg);
 		//Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -169,6 +147,9 @@ public class action {
 		session.setAttribute("doctorname", doctorname);
 		session.setAttribute("rank", rank);
 		session.setAttribute("bookedtime", bookedtime);
+		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
+				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\",\"" + String.valueOf(rank)+ "\",\"" + selecteddate + "\",\""+ bookedtime+"\",null)";
+		System.out.println(insertpatient);
 		c.ope(insertpatient);
 		return "Success";
 	}
@@ -349,7 +330,7 @@ public class action {
 		//department_doctor = c.select(mysql_department_doctor);
 		System.out.println(room);
 		return "Success";
-	}
+	}	
 	public String chooseRecommend()
 	{
 		System.out.println(room);
@@ -399,6 +380,7 @@ public class action {
 	{
 		return "Success";
 	}
+
 	public String selectaction()
 	{
 		System.out.print(selecteddate);
@@ -419,5 +401,5 @@ public class action {
 	public void setTimeseg(String timeseg) {
 		this.timeseg = timeseg;
 	}
-	
+
 }

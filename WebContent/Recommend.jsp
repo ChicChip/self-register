@@ -18,19 +18,38 @@
 </head>
 <body>
     
-    <!--top-->
+   <!--top-->
         <div class="header">
-        <h3 class="logo"><a href="index.html"><img src="images/Logo.jpg" /></a></h3>
-        <div class="frCont">
-               <dl><a href="#">职业卫生</a><a href="#">院长信箱</a><a href="#">加入收藏</a></dl>
-               <a href="#">官网</a>
-               <a href="#">耳鼻咽喉头颈外科</a>
-               <a href="#">职业卫生信息网</a>
+        <h3 class="logo"><a href="index.jsp"><img src="images/Logo.jpg" /></a></h3>
+        <div class="frCont" style="z-index:99">
+           <dl><%String s = (String)session.getAttribute("user"); String stype = (String)session.getAttribute("type");
+            if(s != null)
+                {if(stype.equals("1")){
+                 out.print("<li class=\"dropdown\">");
+            	 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"<span class=\"caret\"></span></a>");
+                 out.print("<ul class=\"dropdown-menu\">");
+                 //out.print("<li><a href=mymessage?nickname="+s+">我的信息</a></li>");
+                 out.print("<li><a href=showcare?nickname="+s+">我的挂号单</a></li>");
+                 out.print("<li><a href=\"signout\">退出</a>");
+                 out.print("</ul> </li> ");
+                 }
+                 else{
+                 out.print("<li class=\"dropdown\">");
+            	 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"医生"+"<span class=\"caret\"></span></a>");
+                 out.print("<ul class=\"dropdown-menu\">");
+                 out.print("<li><a href=docmessagetoday?nickname="+s+">今天病人</a></li>");
+                 out.print("<li><a href=docmessage?nickname="+s+">已预约病人</a></li>");
+                 out.print("<li><a href=schedule?nickname="+s+">我的时间表</a></li>");
+                 out.print("<li><a href=\"signout\">退出</a>");
+                 out.print("</ul> </li> ");
+                 }
+                } 
+            else {out.print("<a href=\"login.jsp\">登录</a><a href=\"Reg.jsp\">注册</a>");}%></dl>
         </div>
-        <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>
+       <!--   <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>-->
         <div class="mainnav">
               <ul>
-                    <li id="nav1"><span><a href="index.html">网站首页</a></span></li>
+                    <li id="nav1"><span><a href="index.jsp">网站首页</a></span></li>
                     <li id="nav2"><span><a href="about.html">医院概括</a></span></li>
                     <li id="nav3"><span><a href="guide.html">就医指南</a></span></li>
                     <li id="nav4"><span><a href="news.html">新闻中心</a></span></li>
