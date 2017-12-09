@@ -10,9 +10,9 @@ import java.util.List;
 
 public class DBlogin {
 	private String dbDriver="com.mysql.jdbc.Driver";   
-    private String dbUrl="jdbc:mysql://127.0.0.1/registation?characterEncoding=utf8";  
+    private String dbUrl="jdbc:mysql://127.0.0.1/registration?characterEncoding=utf8";  
     private String dbUser="root";  
-    private String dbPassword="shanjidian1";
+    private String dbPassword="317263005";
     DBlogin(){
     	
     }
