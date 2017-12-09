@@ -28,8 +28,8 @@
                  out.print("<li class=\"dropdown\">");
             	 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"<span class=\"caret\"></span></a>");
                  out.print("<ul class=\"dropdown-menu\">");
-                 out.print("<li><a href=mymessage?nickname="+s+">我的信息</a></li>");
-                 out.print("<li><a href=showcare?nickname="+s+">我的事务</a></li>");
+                 //out.print("<li><a href=mymessage?nickname="+s+">我的信息</a></li>");
+                 out.print("<li><a href=showcare?nickname="+s+">我的挂号单</a></li>");
                  out.print("<li><a href=\"signout\">退出</a>");
                  out.print("</ul> </li> ");
                  }
@@ -37,7 +37,8 @@
                  out.print("<li class=\"dropdown\">");
             	 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"医生"+"<span class=\"caret\"></span></a>");
                  out.print("<ul class=\"dropdown-menu\">");
-                 out.print("<li><a href=docmessage?nickname="+s+">我的信息</a></li>");
+                 out.print("<li><a href=docmessagetoday?nickname="+s+">今天病人</a></li>");
+                 out.print("<li><a href=docmessage?nickname="+s+">已预约病人</a></li>");
                  out.print("<li><a href=schedule?nickname="+s+">我的时间表</a></li>");
                  out.print("<li><a href=\"signout\">退出</a>");
                  out.print("</ul> </li> ");
@@ -62,7 +63,6 @@
         </div>
     </div>
     <!--top End-->
-    
     <!--Star-->
     <div style="background:url(images/temp/Ban_news.jpg) no-repeat center top">
     <div class="H193"><span class="leftBg"></span><span class="rightBg"></span></div>

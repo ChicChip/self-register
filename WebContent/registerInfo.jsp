@@ -24,7 +24,7 @@
   <div class="form-group">
     <label for="patientname" class="col-sm-2 control-label">姓名</label>
     <div class="col-sm-10">
-      <input type="text" name="patientname" class="form-control" id="name" placeholder="请输入姓名" required="required">
+      <input type="text" name="patientname" value='<s:property value="#session.Name"/>' class="form-control" id="name" placeholder="请输入姓名" readonly="true" required="required">
     </div>
   </div>
   <div class="form-group">
@@ -42,7 +42,7 @@
   <div class="form-group">
     <label for="id" class="col-sm-2 control-label">身份证号</label>
     <div class="col-sm-10">
-      <input type="text" name="id" class="form-control" id="id" placeholder="请输入身份证号" required="required">
+      <input type="text" name="id" value='<s:property value="#session.ID"/>' class="form-control" id="id" placeholder="请输入身份证号" required="required">
     </div>
   </div>
   <div class="form-group">

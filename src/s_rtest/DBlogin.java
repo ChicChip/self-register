@@ -90,4 +90,26 @@ public class DBlogin {
         	}
     	return SelResult;
     }
+    
+    public List<String> Select(String sql,String x,String y){
+    	List<String> SelResult = new LinkedList<String>();
+    	Connection con = ConnectMysql();
+    	try {
+        	PreparedStatement add = con.prepareStatement(sql);
+        	if (!x.equals("")&&!y.equals("")) {
+        	    add.setString(1, x);
+        	    add.setString(2, y);
+        	    }
+        	ResultSet rs = add.executeQuery();
+        	while(rs.next())  
+            {  
+                for(int i = 1;i<=rs.getMetaData().getColumnCount();i++){
+                SelResult.add(rs.getString(i));}
+            }  
+        	}
+        	catch(SQLException e) {
+        		e.printStackTrace();
+        	}
+    	return SelResult;
+    }
 }

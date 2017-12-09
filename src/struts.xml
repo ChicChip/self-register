@@ -48,8 +48,13 @@
             <result name="Fail">/Fail.jsp</result>
         </action>
         
-        <action name="mymessage" class="s_rtest.sign" method = "Showmymessage">
+        <!--<action name="mymessage" class="s_rtest.sign" method = "Showmymessage">
             <result name="Success">/Mymessage.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>-->
+        
+        <action name="docmessagetoday" class="s_rtest.sign" method = "Showdocmessagetoday">
+            <result name="Success">/Docmessage.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
         
@@ -65,7 +70,7 @@
         
         <action name="showcare" class="s_rtest.sign" method = "Showcare">
             <result name="Success">/Showcare.jsp</result>
-			
+		</action>
          <action name="selectaction" class="s_rtest.action" method = "selectaction">
             <result name="Success">/registerInfo.jsp</result>
             <result name="Fail">/Fail.jsp</result>

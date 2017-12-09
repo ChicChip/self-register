@@ -1,5 +1,7 @@
 package s_rtest;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -70,8 +72,12 @@ public class sign {
 		    }
 		    else {
 		        if(res.get(2).equals(password)) {
+		        	String id = res.get(1);
+		        	String na = res.get(3);
 		        	ActionContext.getContext().getSession().put("user", nickname);
 		        	session.setAttribute("type", type);
+		        	session.setAttribute("ID", id);
+		        	session.setAttribute("Name", na);
 		        	//session.setAttribute("user", nickname);
 		    	    return "Success";
 		        }
@@ -92,6 +98,7 @@ public class sign {
 		        if(res.get(5).equals(password)) {
 		    	    session.setAttribute("user", nickname);
 		    	    session.setAttribute("type", type);
+		    	    session.setAttribute("Name", nickname);
 		    	    return "Success";
 		        }
 		        else{
@@ -111,28 +118,43 @@ public class sign {
     	return "Success";
     }
     
-    //展示病人消息
+    /*//展示病人消息
     public String Showmymessage() {
     	List<String> res = new LinkedList<String>();
 		String sql="select * from user where nickname=?";
 		DBlogin con = new DBlogin();
-		System.out.println(nickname);
 		res = con.Select(sql, nickname);
-		System.out.println(res);
+		session.setAttribute("mymessage",res);
+    	return "Success";
+    }*/
+    
+    public String Showdocmessage(){
+    	List<String> res = new LinkedList<String>();
+    	Date dt = new Date();
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+		String nowdate = sdf.format(dt);
+		String sql="select * from patient where urdoctor=? and selecteddate>=? ORDER BY selecteddate,ctime";
+		DBlogin con = new DBlogin();
+		res = con.Select(sql, nickname,nowdate);
+		session.setAttribute("docmessage",res);
     	return "Success";
     }
     
-    //展示医生信息
-    public String Showdocmessage(){
+    public String Showdocmessagetoday(){
     	List<String> res = new LinkedList<String>();
-		String sql="select * from doctor where doctorname=?";
+    	Date dt = new Date();
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+		String nowdate = sdf.format(dt);
+		String sql="select * from patient where urdoctor=? and selecteddate=? order by ctime";
 		DBlogin con = new DBlogin();
-		res = con.Select(sql, nickname);
+		res = con.Select(sql, nickname,nowdate);
+		session.setAttribute("docmessage",res);
     	return "Success";
     }
     
     //展示医生时间表
     public String Showschedule() {
+    	
     	return "Success";
     }
     
@@ -140,13 +162,13 @@ public class sign {
     public String Showcare() {
     	List<String> res = new LinkedList<String>();
 		String sql="select * from user where nickname=?";
-		String sql1="select * from patient where ID=?";
+		String sql1="select * from patient where id=? order by selecteddate";
 		DBlogin con = new DBlogin();
 		res = con.Select(sql, nickname);
 		String id = res.get(1);
 		res.clear();
 		res = con.Select(sql1, id);
-		System.out.println(res);
+		session.setAttribute("message",res);
     	return "Success";
     }
     

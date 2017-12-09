@@ -31,6 +31,7 @@ public class action {
     private String recommendRoom;
     private String timeseg;
     private int rank;
+    private String selecteddate;
     public int getRank() {
 		return rank;
 	}
@@ -125,11 +126,8 @@ public class action {
 	public String registerInfo() throws ParseException {
 		DBConnection c = new DBConnection();
 		System.out.println("info:"+selecteddate+timeseg+rank);
-		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
-				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\",\"" + String.valueOf(rank)+ "\",\"" + selecteddate+"\")";
 		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" + doctorname + "\"";
 		System.out.println(mysql_forthisdoctor);
-		System.out.println(insertpatient);
 		System.out.println("if received:"+doctorname+selecteddate+"!!!!"+timeseg);
 		//Integer urnum = Integer.parseInt(c.select(mysql_forthisdoctor).get(3));
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -146,6 +144,9 @@ public class action {
 		session.setAttribute("doctorname", doctorname);
 		session.setAttribute("rank", rank);
 		session.setAttribute("bookedtime", bookedtime);
+		String insertpatient = "INSERT into patient values(\"" + patientname +"\",\"" + id +"\"," + Integer.toString(age) +",\""  
+				+ tel + "\",\"" + doctorname + "\",\"" + sex +"\",\"" + String.valueOf(rank)+ "\",\"" + selecteddate + "\",\""+ bookedtime+"\",null)";
+		System.out.println(insertpatient);
 		c.ope(insertpatient);
 		return "Success";
 	}
