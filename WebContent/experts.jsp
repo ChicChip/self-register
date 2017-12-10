@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.LinkedList,java.util.List,java.net.URLEncoder"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,36 +17,54 @@
 
 </head>
 <body>
-    
-    <!--top-->
+   <!--top-->
         <div class="header">
-        <h3 class="logo"><a href="index.html"><img src="images/Logo.jpg" /></a></h3>
-        <div class="frCont">
-               <dl><a href="#">职业卫生</a><a href="#">院长信箱</a><a href="#">加入收藏</a></dl>
-               <a href="#">官网</a>
-               <a href="#">耳鼻咽喉头颈外科</a>
-               <a href="#">职业卫生信息网</a>
+        <h3 class="logo"><a href="index.jsp"><img src="images/Logo.jpg" /></a></h3>
+        <div class="frCont" style="z-index:99">
+           <dl><%String s = (String)session.getAttribute("user"); String stype = (String)session.getAttribute("type");
+            if(s != null)
+                {if(stype.equals("1")){
+                 out.print("<li class=\"dropdown\">");
+                 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"<span class=\"caret\"></span></a>");
+                 out.print("<ul class=\"dropdown-menu\">");
+                 //out.print("<li><a href=mymessage?nickname="+s+">我的信息</a></li>");
+                 out.print("<li><a href=showcare?nickname="+s+">我的挂号单</a></li>");
+                 out.print("<li><a href=\"signout\">退出</a>");
+                 out.print("</ul> </li> ");
+                 }
+                 else{
+                 out.print("<li class=\"dropdown\">");
+                 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"医生"+"<span class=\"caret\"></span></a>");
+                 out.print("<ul class=\"dropdown-menu\">");
+                 out.print("<li><a href=docmessagetoday?nickname="+s+">今天病人</a></li>");
+                 out.print("<li><a href=docmessage?nickname="+s+">已预约病人</a></li>");
+                 out.print("<li><a href=schedule?nickname="+s+">我的时间表</a></li>");
+                 out.print("<li><a href=\"signout\">退出</a>");
+                 out.print("</ul> </li> ");
+                 }
+                } 
+            else {out.print("<a href=\"login.jsp\">登录</a><a href=\"Reg.jsp\">注册</a>");}%></dl>
         </div>
-        <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>
+       <!--   <div class="search"><input name="" type="text" class="text" value="请输入关键字"/><a href="#" class="btn"></a></div>-->
         <div class="mainnav">
               <ul>
-                    <li id="nav1"><span><a href="index.html">网站首页</a></span></li>
-                    <li id="nav2"><span><a href="about.html">医院概括</a></span></li>
-                    <li id="nav3"><span><a href="guide.html">就医指南</a></span></li>
-                    <li id="nav4"><span><a href="news.html">新闻中心</a></span></li>
-                    <li id="nav5"><span><a href="specialist.html">专科介绍</a></span></li>
-                    <li id="nav6"><span><a href="experts.html">专家介绍</a></span></li>
-                    <li id="nav7"><span><a href="onlineAdvisory.html">网上咨询</a></span></li>
-                    <li id="nav8"><span><a href="health.html">健康知识</a></span></li>
-                    <li id="nav9"><span><a href="partyWork.html">党群工作</a></span></li>
-                    <li id="nav10"><span><a href="careWorld.html">护理天地</a></span></li>
+                    <li id="nav1"><span><a href="index.jsp">网站首页</a></span></li>
+                    <li id="nav2"><span><a href="about.jsp">医院概括</a></span></li>
+                    <li id="nav3"><span><a href="guide.jsp">就医指南</a></span></li>
+                    <li id="nav4"><span><a href="news.jsp">新闻中心</a></span></li>
+                    <li id="nav5"><span><a href="specialist.jsp">专科介绍</a></span></li>
+                    <li id="nav6"><span><a href="experts.jsp">专家介绍</a></span></li>
+                    <li id="nav7"><span><a href="onlineAdvisory.jsp">网上咨询</a></span></li>
+                    <li id="nav8"><span><a href="health.jsp">健康知识</a></span></li>
+                    <li id="nav9"><span><a href="partyWork.jsp">党群工作</a></span></li>
+                    <li id="nav10"><span><a href="careWorld.jsp">护理天地</a></span></li>
               </ul>
         </div>
     </div>
     <!--top End-->
     
     <!--Star-->
-    <div style="background:url(images/temp/Ban_specialist.jpg) no-repeat center top">
+    <div style="background:url(images/temp/Ban_experts.jpg) no-repeat center top">
     <div class="H193"><span class="leftBg"></span><span class="rightBg"></span></div>
     <div class="Content">
     
@@ -51,12 +72,12 @@
             <!--左边-->
             <div class="Sidebar">
                            <div class="Menu">
-                    <h4>专科介绍<span>Specialist</span></h4>
+                    <h4>专家介绍<span>Experts</span></h4>
                     <ul>
-                            <li id="menu1"><a href="specialist.html">科室介绍</a></li>
-                            <li id="menu2"><a href="specialistExperts.html">科室专家</a></li>
-                            <li id="menu3"><a href="specialistDp.html">科室出诊</a></li>
-                            <li id="menu4"><a href="specialistAdvisory.html">科室咨询</a></li>
+                            <li id="menu1"><a href="experts.html">专家A</a></li>
+                            <li id="menu2"><a href="experts.html">专家B</a></li>
+                            <li id="menu3"><a href="experts.html">专家C</a></li>
+                            <li id="menu4"><a href="experts.html">专家D</a></li>
                     </ul>
                </div>
 
@@ -89,10 +110,10 @@
                            <!--Star-->
                            <ul class="Experts_list">
                                     <li>
-                                            <div class="bg"><a href="#" target="_blank"></a></div>
-                                            <div class="pic"><a href="#" target="_blank"><img src="images/temp/Pic05.jpg" /></a></div>
+                                            <div class="bg"><a href="expertsInfo.html"></a></div>
+                                            <div class="pic"><a href="expertsInfo.html"><img src="images/temp/Pic05.jpg" /></a></div>
                                             <dl>
-                                                <em>姓名：</em><a href="#" target="_blank">史晶</a><br />
+                                                <em>姓名：</em><a href="expertsInfo.html">史晶</a><br />
                                                 <em>职称：</em>副主任医师<br />
                                                 <em>科室：</em>外科
                                             </dl>
@@ -217,8 +238,8 @@
     <!--Bottom End-->
     
     <script type="text/javascript" language="javascript">
-       jQuery("#nav5").attr("class","onnav");
-	   jQuery("#menu2").attr("class","acur");
+       jQuery("#nav6").attr("class","onnav");
+	   jQuery("#menu1").attr("class","acur");
     </script>
     
 </body>

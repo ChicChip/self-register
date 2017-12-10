@@ -14,9 +14,9 @@ import java.util.List;
 
 public class DBConnection {
 
-	private String dbURL = "jdbc:mysql://localhost:3306/registation?characterEncoding=utf8";
+	private String dbURL = "jdbc:mysql://localhost:3306/registration?characterEncoding=utf8";
 	private String dbUser = "root";
-	private String dbKey = "shanjidian1";
+	private String dbKey = "317263005";
 
 	public Connection getCon()
 	{

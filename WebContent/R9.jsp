@@ -17,8 +17,7 @@
 
 </head>
 <body>
-    
-    <!--top-->
+   <!--top-->
         <div class="header">
         <h3 class="logo"><a href="index.jsp"><img src="images/Logo.jpg" /></a></h3>
         <div class="frCont" style="z-index:99">
@@ -26,7 +25,7 @@
             if(s != null)
                 {if(stype.equals("1")){
                  out.print("<li class=\"dropdown\">");
-            	 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"<span class=\"caret\"></span></a>");
+                 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"<span class=\"caret\"></span></a>");
                  out.print("<ul class=\"dropdown-menu\">");
                  //out.print("<li><a href=mymessage?nickname="+s+">我的信息</a></li>");
                  out.print("<li><a href=showcare?nickname="+s+">我的挂号单</a></li>");
@@ -35,7 +34,7 @@
                  }
                  else{
                  out.print("<li class=\"dropdown\">");
-            	 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"医生"+"<span class=\"caret\"></span></a>");
+                 out.print("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> "+"您好,"+s+"医生"+"<span class=\"caret\"></span></a>");
                  out.print("<ul class=\"dropdown-menu\">");
                  out.print("<li><a href=docmessagetoday?nickname="+s+">今天病人</a></li>");
                  out.print("<li><a href=docmessage?nickname="+s+">已预约病人</a></li>");
@@ -50,15 +49,15 @@
         <div class="mainnav">
               <ul>
                     <li id="nav1"><span><a href="index.jsp">网站首页</a></span></li>
-                    <li id="nav2"><span><a href="about.html">医院概括</a></span></li>
-                    <li id="nav3"><span><a href="guide.html">就医指南</a></span></li>
-                    <li id="nav4"><span><a href="news.html">新闻中心</a></span></li>
-                    <li id="nav5"><span><a href="specialist.html">专科介绍</a></span></li>
-                    <li id="nav6"><span><a href="experts.html">专家介绍</a></span></li>
-                    <li id="nav7"><span><a href="onlineAdvisory.html">网上咨询</a></span></li>
-                    <li id="nav8"><span><a href="health.html">健康知识</a></span></li>
-                    <li id="nav9"><span><a href="partyWork.html">党群工作</a></span></li>
-                    <li id="nav10"><span><a href="careWorld.html">护理天地</a></span></li>
+                    <li id="nav2"><span><a href="about.jsp">医院概括</a></span></li>
+                    <li id="nav3"><span><a href="guide.jsp">就医指南</a></span></li>
+                    <li id="nav4"><span><a href="news.jsp">新闻中心</a></span></li>
+                    <li id="nav5"><span><a href="specialist.jsp">专科介绍</a></span></li>
+                    <li id="nav6"><span><a href="experts.jsp">专家介绍</a></span></li>
+                    <li id="nav7"><span><a href="onlineAdvisory.jsp">网上咨询</a></span></li>
+                    <li id="nav8"><span><a href="health.jsp">健康知识</a></span></li>
+                    <li id="nav9"><span><a href="partyWork.jsp">党群工作</a></span></li>
+                    <li id="nav10"><span><a href="careWorld.jsp">护理天地</a></span></li>
               </ul>
         </div>
     </div>

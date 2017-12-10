@@ -71,6 +71,24 @@ public class DBlogin {
         	return flag;
     }
     
+    public List<String> Select(String sql){
+    	List<String> SelResult = new LinkedList<String>();
+    	Connection con = ConnectMysql();
+    	try {
+        	PreparedStatement add = con.prepareStatement(sql);
+        	ResultSet rs = add.executeQuery();
+        	while(rs.next())  
+            {  
+                for(int i = 1;i<=rs.getMetaData().getColumnCount();i++){
+                SelResult.add(rs.getString(i));}
+            }  
+        	}
+        	catch(SQLException e) {
+        		e.printStackTrace();
+        	}
+    	return SelResult;
+    }
+    
     public List<String> Select(String sql,String x){
     	List<String> SelResult = new LinkedList<String>();
     	Connection con = ConnectMysql();
@@ -112,4 +130,35 @@ public class DBlogin {
         	}
     	return SelResult;
     }
+    public int Update(String sql,int x0,int x1,int x2,int x3,int x4,int x5,int x6,int x7,int x8,int x9,int x10,int x11,int x12,int x13,int x14,int x15) {
+    	Connection con = ConnectMysql();
+    	int flag = 0;
+    	try {
+        	PreparedStatement add = con.prepareStatement(sql);
+        		add.setInt(1, x0);
+        		add.setInt(2, x1);
+        		add.setInt(3, x2);
+        		add.setInt(4, x3);
+        		add.setInt(5, x4);
+        		add.setInt(6, x5);
+        		add.setInt(7, x6);
+        		add.setInt(8, x7);
+        		add.setInt(9, x8);
+        		add.setInt(10, x9);
+        		add.setInt(11, x10);
+        		add.setInt(12, x11);
+        		add.setInt(13, x12);
+        		add.setInt(14, x13);
+        		add.setInt(15, x14);
+        		add.setInt(16, x15);
+            
+        	flag = add.executeUpdate();
+        	}
+        	catch(SQLException e) {
+        		e.printStackTrace();
+        	}
+        	return flag;
+    }
+
+    
 }

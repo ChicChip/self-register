@@ -28,6 +28,11 @@
             <result name="Fail">/Fail.jsp</result>
         </action>
         
+        <action name="circledate" class="s_rtest.sign" method = "circledate">
+            <result name="Success">/index.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
         <action name="gotoRegister" class="s_rtest.action" method = "gotoRegister">
             <result name="Success">/home-sub.jsp</result>
             <result name="Fail">/Fail.jsp</result>
@@ -35,6 +40,7 @@
         
         <action name="login" class="s_rtest.sign" method = "Login">
             <result name="Success">/index.jsp</result>
+            <result name="Admin">/Admin.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
         
@@ -63,8 +69,8 @@
             <result name="Fail">/Fail.jsp</result>
         </action>
         
-        <action name="schedule" class="s_rtest.sign" method = "Showschedule">
-            <result name="Success">/Schedule.jsp</result>
+        <action name="schedule" class="s_rtest.sign" method = "showSchedule">
+            <result name="Success">schedule.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
         
@@ -73,6 +79,11 @@
 		</action>
          <action name="selectaction" class="s_rtest.action" method = "selectaction">
             <result name="Success">/registerInfo.jsp</result>
+            <result name="Fail">/Fail.jsp</result>
+        </action>
+        
+        <action name="deleteDate" class="s_rtest.sign" method = "deleteDate">
+            <result name="Success">/index.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
         

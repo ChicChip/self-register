@@ -18,23 +18,23 @@
 </head>
 <body>
     <h1>欢迎</h1>
-    <div class="container">
+    <div class="container" align ="center">
         <s:form role="form" action="reg">
         <div class="form-group">
           <label for="nickname">用户名</label>
-          <input type="text" name="nickname" class="form-control" id="nickname" placeholder="昵称" required="required">
+          <input type="text" name="nickname" style="width:50%"class="form-control" id="nickname" placeholder="昵称" required="required">
         </div>
         <div class="form-group">
           <label for="ID">ID</label>
-          <input type="text" name="ID" class="form-control" id="ID" placeholder="身份证号" required="required">
+          <input type="text" name="ID" style="width:50%" class="form-control" id="ID" placeholder="身份证号" required="required">
         </div>
         <div class="form-group">
           <label for="key">密码</label>
-          <input type="password" name="password" class="form-control" id="key" placeholder="输入6-32位间的密码" required="required">
+          <input type="password" name="password" style="width:50%" class="form-control" id="key" placeholder="输入6-32位间的密码" required="required">
         </div>
         <div class="form-group">
           <label for="name">真实姓名</label>
-          <input type="text" name="realname" class="form-control" id="name" placeholder="真实姓名" required="required">
+          <input type="text" name="realname" style="width:50%" class="form-control" id="name" placeholder="真实姓名" required="required">
         </div>
           <button type="submit" class="btn btn-info">注册</button>
         </s:form>

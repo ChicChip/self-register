@@ -31,8 +31,7 @@ public class action {
     private String recommendRoom;
     private String timeseg;
     private int rank;
-    private String nickname;
-    private int deleterank;
+
     private String selecteddate;
     public int getRank() {
 		return rank;
@@ -45,7 +44,7 @@ public class action {
     private int limitpatients;
     private String mysql_department_doctor;
     private List<String> targetdoctor = new LinkedList<String>();
-    private List<String> showdate = new LinkedList<String>();
+    
     private List<String> department_doctor = new LinkedList<String>();
     ServletRequest request = ServletActionContext.getRequest();
 	ServletRequest request2 = ServletActionContext.getRequest();
@@ -194,7 +193,9 @@ public class action {
 			targetRank = 2 * daysbetween -1 ;
 		int thislimit = Integer.valueOf(targetdoctor.get(targetRank));
 		String thisdoctorname = targetdoctor.get(0);
-		if(thislimit >= 10)
+		if(thislimit == 100)
+			register_flag = "busy";
+		else if(thislimit>10)
 			register_flag = "overpeople";
 		else
 		{
@@ -337,45 +338,7 @@ public class action {
 		return room;
 		
 	}
-	public String showSchedule()
-	{
-		Date dt = new Date();
-		DBConnection c = new DBConnection();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String nowdate = sdf.format(dt);
-		String sqlforworkdate = "select * from workdate where doctorname = \""+ nickname +"\"";
-		//session.setAttribute("nowdate", nowdate);
-		showdate = c.select(sqlforworkdate);
-		for(int i = 0;i<=9;i+=2)
-		{
-			Date dt1 = new Date();
-			long waittime = (i/2 + 1) * 24 * 3600 * 1000;
-			Date dt2 = new Date(dt.getTime()+waittime);
-			showdate.set(i, sdf.format(dt2));
-			showdate.set(i+1, sdf.format(dt2));								
-		}
-		session.setAttribute("showdate", showdate);
-		session.setAttribute("nickname", nickname);
-		
-		return "Success";
-		
-	}
-	public String deleteDate()
-	{
-		String update ="";
-		if(deleterank%2==0)
-		{
-			update = Integer.toString(deleterank/2 + 1)+"up";
-		}
-		else
-		{
-			update = Integer.toString(deleterank/2 +1) + "down";
-		}
-		String setBusy ="UPDATE workdate SET " + update + "=100 where doctorname =\"" + nickname + "\"" ;
-		DBConnection c =  new DBConnection();
-		c.ope(setBusy);
-		return "Success";
-	}
+	
 	public String gotoRegister()
 	{
 		return "Success";

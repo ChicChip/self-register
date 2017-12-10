@@ -14,13 +14,12 @@
         <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-<title>登录</title>
+<title>自助挂号系统</title>
 </head>
 <body>
-    <h1>您的信息</h1>
-    <div class="container">
-        
-    </div>
+    <h1>欢迎管理员到来</h1>
+    <a href=circledate><button>点击此处完成数据库更新</button></a>
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

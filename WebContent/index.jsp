@@ -49,15 +49,15 @@
         <div class="mainnav">
               <ul>
                     <li id="nav1"><span><a href="index.jsp">网站首页</a></span></li>
-                    <li id="nav2"><span><a href="about.html">医院概括</a></span></li>
-                    <li id="nav3"><span><a href="guide.html">就医指南</a></span></li>
-                    <li id="nav4"><span><a href="news.html">新闻中心</a></span></li>
-                    <li id="nav5"><span><a href="specialist.html">专科介绍</a></span></li>
-                    <li id="nav6"><span><a href="experts.html">专家介绍</a></span></li>
-                    <li id="nav7"><span><a href="onlineAdvisory.html">网上咨询</a></span></li>
-                    <li id="nav8"><span><a href="health.html">健康知识</a></span></li>
-                    <li id="nav9"><span><a href="partyWork.html">党群工作</a></span></li>
-                    <li id="nav10"><span><a href="careWorld.html">护理天地</a></span></li>
+                    <li id="nav2"><span><a href="about.jsp">医院概括</a></span></li>
+                    <li id="nav3"><span><a href="guide.jsp">就医指南</a></span></li>
+                    <li id="nav4"><span><a href="news.jsp">新闻中心</a></span></li>
+                    <li id="nav5"><span><a href="specialist.jsp">专科介绍</a></span></li>
+                    <li id="nav6"><span><a href="experts.jsp">专家介绍</a></span></li>
+                    <li id="nav7"><span><a href="onlineAdvisory.jsp">网上咨询</a></span></li>
+                    <li id="nav8"><span><a href="health.jsp">健康知识</a></span></li>
+                    <li id="nav9"><span><a href="partyWork.jsp">党群工作</a></span></li>
+                    <li id="nav10"><span><a href="careWorld.jsp">护理天地</a></span></li>
               </ul>
         </div>
     </div>

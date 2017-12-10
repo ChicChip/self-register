@@ -22,11 +22,12 @@ public class sign {
     private String doctorname;
     private String type;
     private String result;
+    private int deleterank;
     
     ServletRequest request = ServletActionContext.getRequest();
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
-    
+    private List<String> showdate = new LinkedList<String>();
     //×¢²áº¯Êý
     public String reg() {
     	List<String> res = new LinkedList<String>();
@@ -62,6 +63,7 @@ public class sign {
     	List<String> res = new LinkedList<String>();
 		String sql="select * from user where nickname=?";
 		String sql1="select * from doctor where doctorname=?";
+		String sql2="select * from Admin where name=?";
 		DBlogin con = new DBlogin();
 		if(type.equals("1")) {
 			res.clear();
@@ -107,8 +109,27 @@ public class sign {
 		        }
 		    }
 		}
+		else if(type.equals("3")) {
+			res.clear();
+		    res = con.Select(sql2, nickname);
+		    if(res.size()==0) {
+		    	result = "ÕËºÅ²»´æÔÚ";
+		    	return "Fail";
+		    }
+		    else {
+		        if(res.get(2).equals(password)) {
+		    	    session.setAttribute("user", nickname);
+		    	    session.setAttribute("type", type);
+		    	    return "Admin";
+		        }
+		        else{
+		        	result = "ÃÜÂë´íÎó£¡";
+			    	return "Fail";
+		        }
+		    }
+		}
 		else
-			return "";
+			return "Fail";
     }
     
     //µÇ³ö
@@ -171,6 +192,69 @@ public class sign {
 		session.setAttribute("message",res);
     	return "Success";
     }
+	public String showSchedule()
+	{
+		Date dt = new Date();
+		DBlogin c = new DBlogin();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String nowdate = sdf.format(dt);
+		String sqlforworkdate = "select * from workdate where doctorname=?";
+		System.out.println(sqlforworkdate+nickname);
+		//session.setAttribute("nowdate", nowdate);
+		showdate = c.Select(sqlforworkdate, nickname);
+		System.out.println(showdate.size());
+		for(int i = 1;i<=16;i+=2)
+		{
+			Date dt1 = new Date();
+			long waittime = (i+1)/2 * 24 * 3600 * 1000;
+			Date dt2 = new Date(dt.getTime()+waittime);
+			showdate.set(i, sdf.format(dt2));
+			showdate.set(i+1, sdf.format(dt2));								
+		}
+		session.setAttribute("showdate", showdate);
+		session.setAttribute("nickname", nickname);
+		
+		return "Success";
+		
+	}
+	public String deleteDate()
+	{
+		String update ="";
+		System.out.println(nickname);
+		String [] temp = nickname.split("_");
+		System.out.println(temp[0]+"    "+temp[1]);
+		nickname = temp[0];
+		deleterank = Integer.valueOf(temp[1]);
+		if(deleterank%2==0)
+		{
+			update = Integer.toString((deleterank+1)/2)+"down";
+		}
+		else
+		{
+			update = Integer.toString((deleterank+1)/2) + "up";
+		}
+		System.out.println(update+nickname);
+		String setBusy ="UPDATE workdate SET " + update + "=100 where doctorname =\"" + nickname +"\"" ;
+		System.out.println(setBusy);
+		DBConnection c = new DBConnection();
+		c.ope(setBusy);
+		return "Success";
+	}
+	public String circledate()
+	{
+		List<String> res = new LinkedList<String>();
+		List<String> res1 = new LinkedList<String>();
+		String sql="select * from workdate";
+		String sql1="update workdate set 1up=?,1down=?,2up=?,2down=?,3up=?,3down=?,4up=?,4down=?,5up=?,5down=?,6up=?,6down=?,7up=?,7down=?,8up=?,8down=? where doctorname=";
+		DBlogin con = new DBlogin();
+        res = con.Select(sql);
+        String res2 = "";
+        for(int i=0;i<res.size();i+=17) {
+        	res2 = sql1+"\""+res.get(i)+"\"";
+        	con.Update(res2, Integer.parseInt(res.get(i+2)), Integer.parseInt(res.get(i+3)), Integer.parseInt(res.get(i+4)), Integer.parseInt(res.get(i+5)), Integer.parseInt(res.get(i+6)), Integer.parseInt(res.get(i+7)), Integer.parseInt(res.get(i+8)), Integer.parseInt(res.get(i+9)), Integer.parseInt(res.get(i+10)), Integer.parseInt(res.get(i+11)),Integer.parseInt(res.get(i+12)), Integer.parseInt(res.get(i+13)), Integer.parseInt(res.get(i+14)), Integer.parseInt(res.get(i+15)), Integer.parseInt(res.get(i+16)), 0);
+        }
+		return "Success";
+	}
     
 	public String getNickname() {
 		return nickname;
