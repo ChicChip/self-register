@@ -1,6 +1,7 @@
 package s_rtest;
 
 import java.util.HashMap;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
@@ -73,14 +74,14 @@ public class action {
 	public int getAge() {
 		return age;
 	}
+	public void setYourillness(String yourillness) {
+		this.yourillness = yourillness;
+	}
 	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getYourillness() {
 		return yourillness;
-	}
-	public void setYourillness(String yourillness) {
-		this.yourillness = yourillness;
 	}
 	public String getDoctorname() {
 		return doctorname;
@@ -108,7 +109,7 @@ public class action {
 	}
 	
 	//医生查询，首页输姓名
-	public String doctorQuery() {
+	public String doctorQuery() throws SQLException {
 		String resultflag = "";
 		DBConnection c = new DBConnection();
 		String sql_fordoctor = "SELECT * from doctor where doctorname = \"" + doctorname + "\"";
@@ -125,7 +126,7 @@ public class action {
 	}
 	
 	//挂号信息插入数据库
-	public String registerInfo() throws ParseException {
+	public String registerInfo() throws ParseException, SQLException {
 		DBConnection c = new DBConnection();
 		System.out.println("info:"+selecteddate+timeseg+rank);
 		String mysql_forthisdoctor ="select * from doctor where doctorname = \"" + doctorname + "\"";
@@ -154,7 +155,7 @@ public class action {
 	}
 	
 	//选择医生，人满失败，人少成功
-	public String beMypatient() throws ParseException {
+	public String beMypatient() throws ParseException, SQLException {
 		//int register_flag = 1;
 		System.out.println("doctorname1:"+doctorname);
 		if(doctorname == null || doctorname.equals(""))
@@ -304,7 +305,7 @@ public class action {
 	}
 	
 	//展示科室医生 --使用首页科室选择（room）
-	public String showroomDoc() {
+	public String showroomDoc() throws SQLException {
 		DBConnection c = new DBConnection();
 		ActionContext context = ActionContext.getContext(); // 
 		HashMap<String , String> map = new HashMap<String , String>();

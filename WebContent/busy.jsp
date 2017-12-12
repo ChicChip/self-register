@@ -19,10 +19,9 @@
 <body>
 
 <center>
-<h1>失败!</h1>
-<s:property value="result"/><br/>
-<a href="login.jsp"><button type="button" class="btn btn-default">返回登录</button></a>
-<a href="Reg.jsp"><button type="button" class="btn btn-default">返回注册</button></a>
+<h1>该医生当时段不出诊，请重新选择！</h1>
+
+<a href="dateselect.jsp"><button type="button" class="btn btn-default" onclick="window.history.go(-1)">返回</button></a>
 </center>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>

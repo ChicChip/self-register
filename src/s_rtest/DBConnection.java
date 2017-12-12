@@ -42,7 +42,7 @@ public class DBConnection {
 		return Con;
 		
 	}
-	public int ope(String sql)
+	public int ope(String sql) throws SQLException
 	{
 		int flag = 0;
 		Connection Con = getCon();
@@ -56,10 +56,11 @@ public class DBConnection {
 		{
 			e.printStackTrace();
 		}
+		Con.close();
 		return flag;
 	}
 	
-	public List<String> select(String sql)
+	public List<String> select(String sql) throws SQLException
 	{
 		Connection Con = getCon();
 		List<String> l = new LinkedList<String>();
@@ -72,12 +73,13 @@ public class DBConnection {
 				for(int i = 1;i<=q.getMetaData().getColumnCount();i++)
 					l.add(q.getString(i));
 			}
+			q.close();
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
-		
+		Con.close();
 		return l;
 		
 	}

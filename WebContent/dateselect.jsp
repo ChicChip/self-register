@@ -100,14 +100,14 @@
             <!--右边-->
             <div class="RightSidebar">
                   <div class="Current">
-                        <dl>你现在的位置:  首页 > 医院概括 > <span>医院概括</span></dl>
-                        <h1>集团简介</h1>
+                        <dl>你现在的位置:  首页 > 自助挂号 > <span>日期选择</span></dl>
+                        <h1>日期选择</h1>
                   </div>
                   <div class="mianContent">
                   
                   
                            <!--Star-->
-                          <div class="container">
+                          <div class="container" align ="center">
     <table align ="center">
     <% String temp = (String)session.getAttribute("doctorname1");
     System.out.println("temp:"+temp); %>
@@ -117,28 +117,13 @@
     
             <s:checkbox name="timeseg" fieldValue="up" label="上午"/>
             <s:checkbox name="timeseg" fieldValue="down" label="下午"/>
-                <button type="submit" >确认</button>
+                <button type="submit"  >确认</button>
 
         </s:form>
     </table>
     </div>
                            
-                           <!--Pages-->
-                           <div class="Pages">
-                                  <span class="p_cur">目前在第<b>1</b>页,</span>
-                                  <span class="p_count">共有<b>3</b>页,</span>
-                                  <span class="p_total">共有<b>3</b>条记录</span>
-                                  <span class="p_page">
-                                  <a href="#" class="a_first">首页</a><a href="#" class="a_prev">上一页</a>
-                                  <em class="num"><a href="#" class="a_cur">1</a><a href="#">2</a><a href="#">3</a></em>
-                                  <a href="#" class="a_next">下一页</a><a href="#" class="a_end">末页</a> 
-                                  <b class="f1">跳转到</b>
-                                  <input class="i_text" type="text" name="textfield" id="textfield" />
-                                  <b class="f2">页</b>
-                                  <input class="i_button" type="submit" name="button" id="button" value="" />
-                              </span>
-                           </div>
-                           <!--Pages-->
+                          
                            <!--End-->
                            
                          

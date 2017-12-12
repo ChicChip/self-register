@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DBlogin {
 	private String dbDriver="com.mysql.jdbc.Driver";   
-    private String dbUrl="jdbc:mysql://127.0.0.1/registration?characterEncoding=utf8";  
+    private String dbUrl="jdbc:mysql://localhost:3306/registration?characterEncoding=utf8";  
     private String dbUser="root";  
     private String dbPassword="317263005";
     DBlogin(){
@@ -34,7 +34,7 @@ public class DBlogin {
     	return connect;
     }
     
-    public int Insert(String sql,String nickname,String ID,String password,String realname) {
+    public int Insert(String sql,String nickname,String ID,String password,String realname) throws SQLException {
     	Connection con = ConnectMysql();
     	int flag = 0;
     	try {
@@ -48,11 +48,12 @@ public class DBlogin {
     	catch(SQLException e) {
     		e.printStackTrace();
     	}
+    	con.close();
     	return flag;
     }
     
     
-    public int Update(String sql,String x,String y) {
+    public int Update(String sql,String x,String y) throws SQLException {
     	Connection con = ConnectMysql();
     	int flag = 0;
     	try {
@@ -68,10 +69,11 @@ public class DBlogin {
         	catch(SQLException e) {
         		e.printStackTrace();
         	}
+    	con.close();
         	return flag;
     }
     
-    public List<String> Select(String sql){
+    public List<String> Select(String sql) throws SQLException{
     	List<String> SelResult = new LinkedList<String>();
     	Connection con = ConnectMysql();
     	try {
@@ -81,15 +83,17 @@ public class DBlogin {
             {  
                 for(int i = 1;i<=rs.getMetaData().getColumnCount();i++){
                 SelResult.add(rs.getString(i));}
-            }  
+            } 
+        	rs.close();
         	}
         	catch(SQLException e) {
         		e.printStackTrace();
         	}
+    	con.close();
     	return SelResult;
     }
     
-    public List<String> Select(String sql,String x){
+    public List<String> Select(String sql,String x) throws SQLException{
     	List<String> SelResult = new LinkedList<String>();
     	Connection con = ConnectMysql();
     	try {
@@ -102,14 +106,16 @@ public class DBlogin {
                 for(int i = 1;i<=rs.getMetaData().getColumnCount();i++){
                 SelResult.add(rs.getString(i));}
             }  
+        	rs.close();
         	}
         	catch(SQLException e) {
         		e.printStackTrace();
         	}
+    	con.close();
     	return SelResult;
     }
     
-    public List<String> Select(String sql,String x,String y){
+    public List<String> Select(String sql,String x,String y) throws SQLException{
     	List<String> SelResult = new LinkedList<String>();
     	Connection con = ConnectMysql();
     	try {
@@ -124,13 +130,15 @@ public class DBlogin {
                 for(int i = 1;i<=rs.getMetaData().getColumnCount();i++){
                 SelResult.add(rs.getString(i));}
             }  
+        	rs.close();
         	}
         	catch(SQLException e) {
         		e.printStackTrace();
         	}
+    	con.close();
     	return SelResult;
     }
-    public int Update(String sql,int x0,int x1,int x2,int x3,int x4,int x5,int x6,int x7,int x8,int x9,int x10,int x11,int x12,int x13,int x14,int x15) {
+    public int Update(String sql,int x0,int x1,int x2,int x3,int x4,int x5,int x6,int x7,int x8,int x9,int x10,int x11,int x12,int x13,int x14,int x15) throws SQLException {
     	Connection con = ConnectMysql();
     	int flag = 0;
     	try {
@@ -157,6 +165,7 @@ public class DBlogin {
         	catch(SQLException e) {
         		e.printStackTrace();
         	}
+    	con.close();
         	return flag;
     }
 

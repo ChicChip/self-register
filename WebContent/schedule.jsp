@@ -104,13 +104,28 @@
                         <h1>集团简介</h1>
                   </div>
                   <div class="mianContent">
+                  <style>
                   
+tr{
+
+
+width:150px;
+height:50px;
+}
+td{
+width :100px;
+height:50px;
+}
+
+                  </style>
                   
                            <!--Star-->
                            <div class="container">
     <table align ="center">
 
          <%List<String> showdate = session.getAttribute("showdate")==null?new LinkedList():(List<String>)session.getAttribute("showdate");
+         List<String> peopleofdate = session.getAttribute("peopleofdate")==null?new LinkedList():(List<String>)session.getAttribute("peopleofdate");
+         
          String nickname = (String)session.getAttribute("nickname");
          out.print("<tr><td>  </td>");
          for(int i=1;i<showdate.size();i+=2)
@@ -127,6 +142,15 @@
          }
         out.print("</tr>");
         
+        out.print("<tr>"+"<td>已约人数</td>");
+        for(int i =1;i<peopleofdate.size();i+=2)
+         {
+             out.print("<td align = \"" + "center" + "\">"+peopleofdate.get(i)+"</td>");
+           
+         }
+        out.print("</tr>");
+        
+        
         out.print("<tr>"+"<td>下午</td>");
         for(int i =2;i<showdate.size();i+=2)
          {
@@ -135,6 +159,13 @@
          }
         out.print("</tr>");
         
+        out.print("<tr>"+"<td>已约人数</td>");
+        for(int i =2;i<peopleofdate.size();i+=2)
+         {
+             out.print("<td align = \"" + "center" + "\">"+peopleofdate.get(i)+"</td>");
+           
+         }
+        out.print("</tr>");
          
          %>
     </table>       

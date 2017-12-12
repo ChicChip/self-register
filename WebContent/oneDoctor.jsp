@@ -100,8 +100,8 @@
             <!--右边-->
             <div class="RightSidebar">
                   <div class="Current">
-                        <dl>你现在的位置:  首页 > 医院概括 > <span>医院概括</span></dl>
-                        <h1>集团简介</h1>
+                        <dl>你现在的位置:  首页 > 自助挂号 > <span>查询医生</span></dl>
+                        <h1>查询医生</h1>
                   </div>
                   <div class="mianContent">
                   

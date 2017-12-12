@@ -14,32 +14,62 @@
         <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-<title>登录</title>
+<!-- Bootstrap 核心 CSS 文件 -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <style>
+            /*web background*/
+            .container{
+                display:table;
+                height:100%;
+            }
+
+            .row{
+                display: table-cell;
+                vertical-align: middle;
+            }
+            /* centered columns styles */
+            .row-centered {
+                text-align:center;
+            }
+            .col-centered {
+                display:inline-block;
+                float:none;
+                text-align:left;
+                margin-right:-4px;
+            }
+        </style>
 </head>
 <body>
-    <h1>欢迎</h1>
-    <div class="container" align ="center">
-        <s:form role="form" action="reg">
-        <div class="form-group">
-          <label for="nickname">用户名</label>
-          <input type="text" name="nickname" style="width:50%"class="form-control" id="nickname" placeholder="昵称" required="required">
+
+    
+    <div class="container" >
+            <div class="row row-centered">
+                <div class="well col-md-6 col-centered">
+                    <h2>欢迎注册</h2>
+                    <s:form action="reg" role="form">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="userid" name="nickname" placeholder="请输入用户名" required="required"/>
+                        </div>
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="userid" name="ID" placeholder="请输入身份证号" required="required"/>
+                        </div>
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" required="required"/>
+                        </div>
+                        <div class="input-group input-group-md">
+                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="userid" name="realname" placeholder="请输入真实姓名" required="required"/>
+                        </div>
+                        <br/>
+                        
+                        <button type="submit" class="btn btn-success btn-block">注册</button>
+                    </s:form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="ID">ID</label>
-          <input type="text" name="ID" style="width:50%" class="form-control" id="ID" placeholder="身份证号" required="required">
-        </div>
-        <div class="form-group">
-          <label for="key">密码</label>
-          <input type="password" name="password" style="width:50%" class="form-control" id="key" placeholder="输入6-32位间的密码" required="required">
-        </div>
-        <div class="form-group">
-          <label for="name">真实姓名</label>
-          <input type="text" name="realname" style="width:50%" class="form-control" id="name" placeholder="真实姓名" required="required">
-        </div>
-          <button type="submit" class="btn btn-info">注册</button>
-        </s:form>
-  
-    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

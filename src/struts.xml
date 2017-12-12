@@ -21,6 +21,9 @@
             <result name="input">dateselect.jsp</result>
             <result name="Success">/registerInfo.jsp</result>
             <result name="Fail">/Fail.jsp</result>
+            <result name="overpeople">/overpeople.jsp</result>
+            <result name="overdate">/overdate.jsp</result>
+            <result name="busy">/busy.jsp</result>
         </action>
         
         <action name="registerInfo" class="s_rtest.action" method = "registerInfo">
@@ -29,7 +32,7 @@
         </action>
         
         <action name="circledate" class="s_rtest.sign" method = "circledate">
-            <result name="Success">/index.jsp</result>
+            <result name="Success">/upsuc.jsp</result>
             <result name="Fail">/Fail.jsp</result>
         </action>
         

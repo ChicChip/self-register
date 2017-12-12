@@ -1,5 +1,6 @@
 package s_rtest;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
@@ -28,8 +29,9 @@ public class sign {
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
     private List<String> showdate = new LinkedList<String>();
+    private List<String> peopleofdate = new LinkedList<String>();
     //注册函数
-    public String reg() {
+    public String reg() throws SQLException {
     	List<String> res = new LinkedList<String>();
 		String sql="select * from user where nickname=?";
 		String sql1="select * from user where ID=?";
@@ -59,7 +61,7 @@ public class sign {
     }
     
     //登录
-    public String Login() {
+    public String Login() throws SQLException {
     	List<String> res = new LinkedList<String>();
 		String sql="select * from user where nickname=?";
 		String sql1="select * from doctor where doctorname=?";
@@ -118,8 +120,8 @@ public class sign {
 		    }
 		    else {
 		        if(res.get(2).equals(password)) {
-		    	    session.setAttribute("user", nickname);
-		    	    session.setAttribute("type", type);
+		    	    //session.setAttribute("user", nickname);
+		    	    //session.setAttribute("type", type);
 		    	    return "Admin";
 		        }
 		        else{
@@ -149,7 +151,7 @@ public class sign {
     	return "Success";
     }*/
     
-    public String Showdocmessage(){
+    public String Showdocmessage() throws SQLException{
     	List<String> res = new LinkedList<String>();
     	Date dt = new Date();
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -161,7 +163,7 @@ public class sign {
     	return "Success";
     }
     
-    public String Showdocmessagetoday(){
+    public String Showdocmessagetoday() throws SQLException{
     	List<String> res = new LinkedList<String>();
     	Date dt = new Date();
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -180,7 +182,7 @@ public class sign {
     }
     
     //展示病人事务
-    public String Showcare() {
+    public String Showcare() throws SQLException {
     	List<String> res = new LinkedList<String>();
 		String sql="select * from user where nickname=?";
 		String sql1="select * from patient where id=? order by selecteddate";
@@ -192,16 +194,17 @@ public class sign {
 		session.setAttribute("message",res);
     	return "Success";
     }
-	public String showSchedule()
+	public String showSchedule() throws SQLException
 	{
 		Date dt = new Date();
 		DBlogin c = new DBlogin();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String nowdate = sdf.format(dt);
+		//String nowdate = sdf.format(dt);
 		String sqlforworkdate = "select * from workdate where doctorname=?";
 		System.out.println(sqlforworkdate+nickname);
 		//session.setAttribute("nowdate", nowdate);
 		showdate = c.Select(sqlforworkdate, nickname);
+		peopleofdate = c.Select(sqlforworkdate, nickname);
 		System.out.println(showdate.size());
 		for(int i = 1;i<=16;i+=2)
 		{
@@ -213,11 +216,12 @@ public class sign {
 		}
 		session.setAttribute("showdate", showdate);
 		session.setAttribute("nickname", nickname);
+		session.setAttribute("peopleofdate",peopleofdate);
 		
 		return "Success";
 		
 	}
-	public String deleteDate()
+	public String deleteDate() throws SQLException
 	{
 		String update ="";
 		System.out.println(nickname);
@@ -240,19 +244,28 @@ public class sign {
 		c.ope(setBusy);
 		return "Success";
 	}
-	public String circledate()
+	public String circledate() throws SQLException
 	{
 		List<String> res = new LinkedList<String>();
-		List<String> res1 = new LinkedList<String>();
+		//List<String> res1 = new LinkedList<String>();
+		DBConnection c = new DBConnection();
 		String sql="select * from workdate";
-		String sql1="update workdate set 1up=?,1down=?,2up=?,2down=?,3up=?,3down=?,4up=?,4down=?,5up=?,5down=?,6up=?,6down=?,7up=?,7down=?,8up=?,8down=? where doctorname=";
-		DBlogin con = new DBlogin();
-        res = con.Select(sql);
-        String res2 = "";
+		//String sql1="update workdate set 1up=?,1down=?,2up=?,2down=?,3up=?,3down=?,4up=?,4down=?,5up=?,5down=?,6up=?,6down=?,7up=?,7down=?,8up=?,8down=? where doctorname=";
+		
+		//DBlogin con = new DBlogin();
+       // res = con.Select(sql);
+		res = c.select(sql);
+        //String res2 = "";
         for(int i=0;i<res.size();i+=17) {
-        	res2 = sql1+"\""+res.get(i)+"\"";
-        	con.Update(res2, Integer.parseInt(res.get(i+2)), Integer.parseInt(res.get(i+3)), Integer.parseInt(res.get(i+4)), Integer.parseInt(res.get(i+5)), Integer.parseInt(res.get(i+6)), Integer.parseInt(res.get(i+7)), Integer.parseInt(res.get(i+8)), Integer.parseInt(res.get(i+9)), Integer.parseInt(res.get(i+10)), Integer.parseInt(res.get(i+11)),Integer.parseInt(res.get(i+12)), Integer.parseInt(res.get(i+13)), Integer.parseInt(res.get(i+14)), Integer.parseInt(res.get(i+15)), Integer.parseInt(res.get(i+16)), 0);
+        	String sql2="update workdate set 1up="+res.get(i+3)+",1down="+res.get(i+4)+",2up="+res.get(i+5)+",2down="+res.get(i+6)+",3up="+res.get(i+7)+",3down="+res.get(i+8)
+        	+",4up="+res.get(i+9)+",4down="+res.get(i+10)+",5up="+res.get(i+11)+",5down="+res.get(i+12)+",6up="+res.get(i+13)+",6down="+res.get(i+14)+",7up="+res.get(i+15)+
+        	",7down="+res.get(i+16)+",8up=0,8down=0 where doctorname=\""+res.get(i)+"\"";
+        	System.out.println(sql2);
+        	c.ope(sql2);
+        	//res2 = sql1+"\""+res.get(i)+"\"";
+        	//con.Update(res2, Integer.parseInt(res.get(i+2)), Integer.parseInt(res.get(i+3)), Integer.parseInt(res.get(i+4)), Integer.parseInt(res.get(i+5)), Integer.parseInt(res.get(i+6)), Integer.parseInt(res.get(i+7)), Integer.parseInt(res.get(i+8)), Integer.parseInt(res.get(i+9)), Integer.parseInt(res.get(i+10)), Integer.parseInt(res.get(i+11)),Integer.parseInt(res.get(i+12)), Integer.parseInt(res.get(i+13)), Integer.parseInt(res.get(i+14)), Integer.parseInt(res.get(i+15)), Integer.parseInt(res.get(i+16)), 0);
         }
+        
 		return "Success";
 	}
     

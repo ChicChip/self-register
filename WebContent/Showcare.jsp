@@ -108,31 +108,45 @@
                   
                   
                            <!--Star-->
+                           <style>
+                  
+tr{
+
+
+width:150px;
+height:50px;
+}
+td{
+width :100px;
+height:50px;
+}
+
+                  </style>
    <table class="table table-striped" align="center">
     <div class="container">
     <tr>
-    <td>姓名</td>
-    <td>性别</td>
-    <td>ID</td>
-    <td>年龄</td>
-    <td>联系方式</td>
-    <td>医生</td>
-    <td>单号</td>
-    <td>日期</td>
+    <td>   &nbsp&nbsp姓名</td>
+    <td>   &nbsp&nbsp性别</td>
+    <td>   &nbsp&nbsp身份证号</td>
+    <td>   &nbsp&nbsp年龄</td>
+    <td>   &nbsp&nbsp联系方式</td>
+    <td>   &nbsp&nbsp医生</td>
+    <td>  &nbsp&nbsp 单号</td>
+    <td>  &nbsp&nbsp 日期</td>
 <tr>
     <%List<String> department_doctor=session.getAttribute("message")==null?new LinkedList():(List<String>)session.getAttribute("message");
 if(!department_doctor.isEmpty()&& department_doctor!=null&&department_doctor.size()!=0)
 {
     for(int i =0;i<department_doctor.size();i+=10)
     {
-    	out.print("<td>"+department_doctor.get(i+0)+"</td>");
-    	out.print("<td>"+department_doctor.get(i+5)+"</td>");
-    	out.print("<td>"+department_doctor.get(i+1)+"</td>");
-        out.print("<td>"+department_doctor.get(i+2)+"</td>");   	
-        out.print("<td>"+department_doctor.get(i+3)+"</td>");
-        out.print("<td>"+department_doctor.get(i+4)+"</td>");
-        out.print("<td>"+department_doctor.get(i+6)+"</td>");
-        out.print("<td>"+department_doctor.get(i+8)+"</td><tr/>");
+    	out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+0)+"</td>");
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+5)+"</td>");
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+1)+"</td>");
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+2)+"</td>");     
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+3)+"</td>");
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+4)+"</td>");
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp&nbsp&nbsp"+department_doctor.get(i+6)+"</td>");
+        out.print("<td algin = \""+"center"+"\">"+"&nbsp&nbsp"+department_doctor.get(i+8)+"</td><tr/>");
 
     }
     
